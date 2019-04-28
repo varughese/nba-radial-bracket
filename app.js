@@ -2,6 +2,14 @@ function trans(x, y) {
 	return 'translate('+x+','+y+')';
 }
 
+function toDegrees(radians) {
+	return radians * 180 / Math.PI;
+}
+
+function rotate(radians) {
+	return `rotate(${toDegrees(radians)})`;
+}
+
 function transformToD3Tree(teams) {
 	const obj = {
 		"name": "A1",
@@ -78,7 +86,7 @@ class RadialBracket {
 		// Convert our team data into a hierachy understandable by d3
 		this.rootNode = transformToD3Tree(teams);
 		this.STYLE = {
-			RADIUS: 300,
+			RADIUS: 350,
 			DOM_ID: '#bracket'
 		};
 	}
@@ -87,12 +95,15 @@ class RadialBracket {
 		this.buildParitionLayout();
 		this.appendSvg();
 		this.addArcs();
-		// this.addText();
+		this.addText();
 	}
 
 	buildParitionLayout() {
 		const rootNode = this.rootNode;
-		// Make only the "leaves" of the tree have nodes
+
+		// Make only the "leaves" of the tree have a value of 1.
+		// this makes it so the bracket is even
+		// took some experimentation to figure this out
 		rootNode.sum(d => (d.children && d.children.length > 1) ? 0 : 1);
 		const { RADIUS } = this.STYLE;
 		
@@ -103,6 +114,8 @@ class RadialBracket {
 	}
 
 	getArcGenerator() {
+		// d3 arc is a tool to create the semi-circle things
+		// called arcs
 		return d3.arc()
 			.startAngle(d => d.x0)
 			.endAngle(d => d.x1)
@@ -131,6 +144,9 @@ class RadialBracket {
 			.append('path')
 			.attr('d', arcGenerator)
 			.attr('class', d => {
+				// You can figure out which "row" based on the value. Since it 
+				// is a tree, you can use log base 2 of how many children it has
+				// to figure out what level of the tree it is
 				const colorRow = Math.log2(d.value) % 2 == 0;
 				const color = colorRow ? 'light-gray' : 'dark-gray';
 				return color + ' round-arc';
@@ -147,13 +163,18 @@ class RadialBracket {
 			.data(rootNode.descendants())
 			.enter().append("text")
 			.attr("transform", function(d) {
-				// const x = (d.x0 + d.x1) / 2 * 180 / Math.PI;
+				// This took some noodling out
+				// First you rotate it, then you can adjust its y
+				// You think in polar coordinates
+				// then you rotate it again
+				const rotation = toDegrees((d.x0 + d.x1) / 2) - 90;
+				const postTextRotation = (0 <= rotation && rotation <= 180) ? 270 : 80;
 				const y = (d.y0 + d.y1) / 2;
-				// return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
-				return trans(d.x1, d.y0);
+				return `rotate(${rotation}) translate(${y},0) rotate(${postTextRotation})`;
 			})
 			.attr("dy", "0.35em")
-			.text(d => d.data.name);
+			.text(d => d.data.name)
+			.attr('class', 'team-name');
 	}
 }
 
