@@ -1,19 +1,32 @@
 <html>
 		<style>
-		path {
-			fill: #333;
-			opacity: 0.3;
+		.round-arc {
 			stroke: white;
+		}
+		.round-arc.dark-gray {
+			fill: #929496;
+		}
+		.round-arc.light-gray {
+			fill: #d1d2d3
 		}
 		body {
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			background-image: url('./bg_gray.jpg');
+			background-position: center;
+		}
+		#playoffs-logo {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			width: 20%;
 		}
 		</style>
 	<body>
 		<div id="bracket">
 		</div>
+		<img id="playoffs-logo" src="nba-playoffs.svg" />
 		<script src="./d3/d3.js"></script>
 		<script src="./app.js"></script>
 	</body>
