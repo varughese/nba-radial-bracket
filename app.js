@@ -82,16 +82,30 @@ function transformToD3Tree(teams) {
 }
 
 class RadialBracket {
-	constructor(teams) {
+	constructor(teams, radius=350, id='#bracket') {
 		// Convert our team data into a hierachy understandable by d3
 		this.rootNode = transformToD3Tree(teams);
 		this.STYLE = {
-			RADIUS: 350,
-			DOM_ID: '#bracket'
+			RADIUS: radius,
+			DOM_ID: id
 		};
+		
+	}
+
+	setStyle(style) {
+		// do this es6 way
+		if(style.RADIUS)
+			this.STYLE.RADIUS = style.RADIUS;
+		return this;
+	}
+
+	erase() {
+		const { DOM_ID } = this.STYLE;
+		d3.select(DOM_ID).selectAll('*').remove();
 	}
 
 	build() {
+		this.erase();
 		this.buildParitionLayout();
 		this.appendSvg();
 		this.addArcs();
@@ -209,15 +223,22 @@ class RadialBracket {
 	addGamesWonDots() {
 		const { svg, rootNode } = this;
 		const arcGenerator = this.getArcGenerator();
-		svg.append("g").selectAll('path')
+		svg.append("g").selectAll('g')
 			.data(rootNode.descendants())
 			.enter()
-			.append('circle')
-			.attr("r", "10")
-			.attr("fill", "#ddd")
+			.append('g')
+			.selectAll('circle')
+			.data(d => {
+				return [d,d,d,d]
+			})
+			.enter()
+			.append("circle")
+			.attr("r", "4")
+			.attr("transform", d => `rotate(${toDegrees(d.x0 + d.x1)}) translate(${Math.random()*350})`)
+			.attr("fill", "#fff")
 	}
 }
 
 
-const bracket = new RadialBracket();
+const bracket = new RadialBracket({}, 350, '#bracket');
 bracket.build();
