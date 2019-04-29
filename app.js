@@ -12,16 +12,16 @@ function rotate(radians) {
 
 function transformToD3Tree(teams) {
 	const obj = {
-		"name": "A1",
+		"name": "PHI",
 		"children": [
 		  {
-			"name": "B1",
+			"name": "MIL",
 			"children": [
 				{
-					"name": "C1",
+					"name": "BOS",
 					"children": [
-						{ "name": "D1", "children": [
-							{ "name": "E1"},
+						{ "name": "SPU", "children": [
+							{ "name": "NUG"},
 							{ "name": "E2"}
 						] },
 						{ "name": "D2", "children": [
@@ -96,6 +96,7 @@ class RadialBracket {
 		this.appendSvg();
 		this.addArcs();
 		this.addText();
+		this.addGamesWonDots();
 	}
 
 	buildParitionLayout() {
@@ -155,26 +156,65 @@ class RadialBracket {
 
 	addText() {
 		const { svg, rootNode } = this;
+		const arcGenerator = d3.arc()
+			.startAngle(d => d.x0)
+			.endAngle(d => d.x1)
+			.innerRadius(d => d.y0+30)
+			.outerRadius(d => d.y0+30);
 
-		svg.append("g")
-			.attr("pointer-events", "none")
-			.attr("text-anchor", "middle")
-			.selectAll("text")
+		const teamNameArc = svg.append("g")
+			.attr('id', 'team-names-arcs')
+			.selectAll('g')
 			.data(rootNode.descendants())
-			.enter().append("text")
-			.attr("transform", function(d) {
-				// This took some noodling out
-				// First you rotate it, then you can adjust its y
-				// You think in polar coordinates
-				// then you rotate it again
-				const rotation = toDegrees((d.x0 + d.x1) / 2) - 90;
-				const postTextRotation = (0 <= rotation && rotation <= 180) ? 270 : 80;
-				const y = (d.y0 + d.y1) / 2;
-				return `rotate(${rotation}) translate(${y},0) rotate(${postTextRotation})`;
-			})
-			.attr("dy", "0.35em")
-			.text(d => d.data.name)
-			.attr('class', 'team-name');
+			.enter()
+			.append('g')
+		
+		teamNameArc
+			.append('defs')
+			.append('path')
+			.attr('d', arcGenerator)
+			.attr('id', d => `${d.data.name}${d.height}${(Number(d.x0+d.x1)*1000).toFixed(0)}`);
+		
+		teamNameArc.append('text')
+			.append('textPath')
+			.attr("text-anchor", "middle")
+			.attr("startOffset", "25%")
+			.attr("class", "team-name")
+			.style("font-weight", "bold")
+			.style("font-size", this.STYLE.RADIUS/13+"px")
+			.attr("xlink:href", d => `#${d.data.name}${d.height}${(Number(d.x0+d.x1)*1000).toFixed(0)}`)
+			.text(d => d.data.name);
+			
+
+		// svg.append("g")
+		// 	.attr("pointer-events", "none")
+		// 	.attr("text-anchor", "middle")
+		// 	.selectAll("text")
+		// 	.data(rootNode.descendants())
+		// 	.enter().append("text")
+		// 	.attr("transform", function(d) {
+		// 		// This took some noodling out
+		// 		// First you rotate it, then you can adjust its y
+		// 		// You think in polar coordinates
+		// 		// then you rotate it again
+		// 		const rotation = toDegrees((d.x0 + d.x1) / 2) - 90;
+		// 		const postTextRotation = (0 <= rotation && rotation <= 180) ? 270 : 80;
+		// 		const y = (d.y0 + d.y1) / 2;
+		// 		return `rotate(${rotation}) translate(${y},0) rotate(${postTextRotation})`;
+		// 	})
+		// 	.attr("dy", "0.35em")
+		// 	.text(d => d.data.name)
+		// 	.attr('class', 'team-name');
+	}
+	addGamesWonDots() {
+		const { svg, rootNode } = this;
+		const arcGenerator = this.getArcGenerator();
+		svg.append("g").selectAll('path')
+			.data(rootNode.descendants())
+			.enter()
+			.append('circle')
+			.attr("r", "10")
+			.attr("fill", "#ddd")
 	}
 }
 
