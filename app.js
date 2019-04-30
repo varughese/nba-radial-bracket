@@ -87,7 +87,8 @@ class RadialBracket {
 		this.rootNode = transformToD3Tree(teams);
 		this.STYLE = {
 			RADIUS: radius,
-			DOM_ID: id
+			DOM_ID: id,
+			GAME_COUNTER_RADIUS: radius/100
 		};
 		
 	}
@@ -142,11 +143,11 @@ class RadialBracket {
 		const { RADIUS, DOM_ID } = this.STYLE;
 		this.svg = d3.select(DOM_ID)
 			.append('svg')
-			  .attr('width', RADIUS*2)
-			  .attr('height', RADIUS*2)
+			  .attr('width', RADIUS*2+6)
+			  .attr('height', RADIUS*2+6)
 			.append('g')
 			  .attr("id", "center")
-			  .attr('transform', trans(RADIUS,RADIUS));
+			  .attr('transform', trans(RADIUS+3,RADIUS+3));
 	}
 
 	addArcs() {
@@ -170,11 +171,12 @@ class RadialBracket {
 
 	addText() {
 		const { svg, rootNode } = this;
+		const TEXT_OFFSET = 33;
 		const arcGenerator = d3.arc()
 			.startAngle(d => d.x0)
 			.endAngle(d => d.x1)
-			.innerRadius(d => d.y0+30)
-			.outerRadius(d => d.y0+30);
+			.innerRadius(d => d.y0+TEXT_OFFSET)
+			.outerRadius(d => d.y0+TEXT_OFFSET);
 
 		const teamNameArc = svg.append("g")
 			.attr('id', 'team-names-arcs')
@@ -222,6 +224,7 @@ class RadialBracket {
 	}
 	addGamesWonDots() {
 		const { svg, rootNode } = this;
+		const { RADIUS, GAME_COUNTER_RADIUS } = this.STYLE;
 		const arcGenerator = this.getArcGenerator();
 		svg.append("g").selectAll('g')
 			.data(rootNode.descendants())
@@ -233,9 +236,14 @@ class RadialBracket {
 			})
 			.enter()
 			.append("circle")
-			.attr("r", "4")
-			.attr("transform", d => `rotate(${toDegrees(d.x0 + d.x1)}) translate(${Math.random()*350})`)
+			.attr("r", GAME_COUNTER_RADIUS)
+			.attr("transform", d => {
+				const y = d.y0 + 5*GAME_COUNTER_RADIUS + 2;
+				const rotation = toDegrees((d.x0 + d.x1)/2) - 90;
+				return `rotate(${rotation}) translate(${y}, 0)`
+			})
 			.attr("fill", "#fff")
+			.on("mouseenter", console.log)
 	}
 }
 
