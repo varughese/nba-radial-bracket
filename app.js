@@ -82,7 +82,7 @@ function transformToD3Tree(teams) {
 }
 
 class RadialBracket {
-	constructor(teams, radius=350, id='#bracket') {
+	constructor(teams, radius=300, id='#bracket') {
 		// Convert our team data into a hierachy understandable by d3
 		this.rootNode = transformToD3Tree(teams);
 		this.STYLE = {
@@ -222,11 +222,14 @@ class RadialBracket {
 		// 	.text(d => d.data.name)
 		// 	.attr('class', 'team-name');
 	}
+
+	// Add the counters. Had to pull out some geometry to make this look good
 	addGamesWonDots() {
 		const { svg, rootNode } = this;
 		const { RADIUS, GAME_COUNTER_RADIUS } = this.STYLE;
-		const init_offset = 4.5*0.0174533;
-		const SPACE_BETWEEN_DOTS = 190.5 * init_offset;
+		const init_offset = Math.PI/40;
+		const offset_list = [-1.5, -.5, .5, 1.5];
+		const SPACE_BETWEEN_DOTS = 3.2*GAME_COUNTER_RADIUS;
 		const arcGenerator = this.getArcGenerator();
 		svg.append("g").selectAll('g')
 			.data(rootNode.descendants())
@@ -242,12 +245,12 @@ class RadialBracket {
 			.attr("transform", (d, i) => {
 				// Lol had to do math to make the dots the same
 				// distance away at each distance from the center
+				// Hard to explain this problem without a picture
 				const y = d.y0 + 5*GAME_COUNTER_RADIUS + 2;
 				const rotation = toDegrees((d.x0 + d.x1)/2) - 90;
-				
+				// fun fact, it took me 2 hours to find out because I forgot to add init_offset
 				let offset = init_offset + ((SPACE_BETWEEN_DOTS - (y*init_offset)))/y //rotation;
-				console.log(toDegrees(init_offset + offset));
-				offset *= i;
+				offset *= offset_list[i];
 				return `rotate(${rotation}) rotate(${toDegrees(offset)}) translate(${y}, 0)`
 			})
 			.attr("fill", "#fff")
@@ -257,17 +260,3 @@ class RadialBracket {
 
 const bracket = new RadialBracket({}, 350, '#bracket');
 bracket.build();
-
-
-const r1 = 159.5;
-const r2 = 229.5;
-const init_offset = Math.PI/4;//4.5*0.0174533;
-const SPACE_BETWEEN_DOTS = 19.5 * init_offset;
-const getOffset = rrr => {
-	return ( SPACE_BETWEEN_DOTS - (rrr*init_offset)) / rrr;
-}
-console.log(getOffset(r2));
-d3.select('svg g').append('circle').attr('r',3.5).attr('fill', 'red').attr('transform', `rotate(45) rotate(0) translate(${r1}, 0)`)
-d3.select('svg g').append('circle').attr('r',3.5).attr('fill', 'red').attr('transform', `rotate(45) rotate(${toDegrees(init_offset + getOffset(r1))}) translate(${r1}, 0)`)
-d3.select('svg g').append('circle').attr('r',3.5).attr('fill', 'red').attr('transform', `rotate(50) rotate(0) translate(${r2}, 0)`)
-d3.select('svg g').append('circle').attr('r',3.5).attr('fill', 'red').attr('transform', `rotate(50) rotate(${toDegrees(init_offset + getOffset(r2))}) translate(${r2}, 0)`)
