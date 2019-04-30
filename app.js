@@ -148,8 +148,9 @@ class RadialBracket {
 		const { RADIUS, DOM_ID } = this.STYLE;
 		this.svg = d3.select(DOM_ID)
 			.append('svg')
-			  .attr('width', RADIUS*2+6)
-			  .attr('height', RADIUS*2+6)
+			//   .attr('width', RADIUS*2+6)
+			//   .attr('height', RADIUS*2+6)
+			  .attr('viewBox', `0 0 ${RADIUS*2+6} ${RADIUS*2+6}`)
 			.append('g')
 			  .attr("id", "center")
 			  .attr('transform', trans(RADIUS+3,RADIUS+3));
@@ -243,6 +244,7 @@ class RadialBracket {
 			})
 			.enter()
 			.append("circle")
+			.attr("class", "game-counter-dot")
 			.attr("r", GAME_COUNTER_RADIUS)
 			.attr("transform", (d, i) => {
 				// Lol had to do math to make the dots the same
@@ -280,7 +282,6 @@ class RadialBracket {
 				const y = ((d.y0 + d.y1) / 2) - HALF_DIAMOND_WIDTH;
 				return `rotate(${rotation}) translate(0,${-HALF_DIAMOND_WIDTH}) translate(${y}, 0) rotate(45 ${HALF_DIAMOND_WIDTH} ${HALF_DIAMOND_WIDTH})`;
 			})
-			.attr("clip-path", "url(#winner-circle-mask)")
 			.attr("fill", "#fff")
 
 	}
