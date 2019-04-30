@@ -22,55 +22,55 @@ function transformToD3Tree(teams) {
 					"children": [
 						{ "name": "SPU", "children": [
 							{ "name": "NUG"},
-							{ "name": "E2"}
+							{ "name": "TOR"}
 						] },
-						{ "name": "D2", "children": [
-							{ "name": "E1"},
-							{ "name": "E2"}
+						{ "name": "GSW", "children": [
+							{ "name": "BOS"},
+							{ "name": "TOR"}
 						] }
 					]
 				},
 				{
-					"name": "C1",
+					"name": "POR",
 					"children": [
-						{ "name": "D1", "children": [
-							{ "name": "E1"},
-							{ "name": "E2"}
+						{ "name": "ORL", "children": [
+							{ "name": "PHI"},
+							{ "name": "TOR"}
 						] },
-						{ "name": "D2", "children": [
-							{ "name": "E1"},
-							{ "name": "E2"}
+						{ "name": "GSW", "children": [
+							{ "name": "BOS"},
+							{ "name": "TOR"}
 						] }
 					]
 				},
 			]
 		  },
 		  {
-			"name": "B2",
+			"name": "HOU",
 			"children": [
 				{
-					"name": "C1",
+					"name": "POR",
 					"children": [
-						{ "name": "D1", "children": [
-							{ "name": "E1"},
-							{ "name": "E2"}
+						{ "name": "ORL", "children": [
+							{ "name": "PHI"},
+							{ "name": "TOR"}
 						] },
-						{ "name": "D2", "children": [
-							{ "name": "E1"},
-							{ "name": "E2"}
+						{ "name": "GSW", "children": [
+							{ "name": "BOS"},
+							{ "name": "TOR"}
 						] }
 					]
 				},
 				{
-					"name": "C1",
+					"name": "POR",
 					"children": [
-						{ "name": "D1", "children": [
-							{ "name": "E1"},
-							{ "name": "E2"}
+						{ "name": "ORL", "children": [
+							{ "name": "BOS"},
+							{ "name": "TOR"}
 						] },
-						{ "name": "D2", "children": [
-							{ "name": "E1"},
-							{ "name": "E2"}
+						{ "name": "GSW", "children": [
+							{ "name": "BOS"},
+							{ "name": "TOR"}
 						] }
 					]
 				},
@@ -88,7 +88,9 @@ class RadialBracket {
 		this.STYLE = {
 			RADIUS: radius,
 			DOM_ID: id,
-			GAME_COUNTER_RADIUS: radius/100
+			GAME_COUNTER_RADIUS: radius/100,
+			SPACE_BETWEEN_DOTS: 3.2*(radius/100),
+			DOTS_DISTANCE: 15
 		};
 		
 	}
@@ -112,6 +114,7 @@ class RadialBracket {
 		this.addArcs();
 		this.addText();
 		this.addGamesWonDots();
+		this.addGameDiamonds();
 	}
 
 	buildParitionLayout() {
@@ -181,7 +184,7 @@ class RadialBracket {
 		const teamNameArc = svg.append("g")
 			.attr('id', 'team-names-arcs')
 			.selectAll('g')
-			.data(rootNode.descendants())
+			.data(rootNode.descendants().slice(1))
 			.enter()
 			.append('g')
 		
@@ -226,13 +229,11 @@ class RadialBracket {
 	// Add the counters. Had to pull out some geometry to make this look good
 	addGamesWonDots() {
 		const { svg, rootNode } = this;
-		const { RADIUS, GAME_COUNTER_RADIUS } = this.STYLE;
+		const { GAME_COUNTER_RADIUS, SPACE_BETWEEN_DOTS, DOTS_DISTANCE } = this.STYLE;
 		const init_offset = Math.PI/40;
 		const offset_list = [-1.5, -.5, .5, 1.5];
-		const SPACE_BETWEEN_DOTS = 3.2*GAME_COUNTER_RADIUS;
-		const arcGenerator = this.getArcGenerator();
 		svg.append("g").selectAll('g')
-			.data(rootNode.descendants())
+			.data(rootNode.descendants().slice(1))
 			.enter()
 			.append('g')
 			.selectAll('circle')
@@ -246,12 +247,35 @@ class RadialBracket {
 				// Lol had to do math to make the dots the same
 				// distance away at each distance from the center
 				// Hard to explain this problem without a picture
-				const y = d.y0 + 5*GAME_COUNTER_RADIUS + 2;
+				const y = d.y0 + DOTS_DISTANCE;
 				const rotation = toDegrees((d.x0 + d.x1)/2) - 90;
 				// fun fact, it took me 2 hours to find out because I forgot to add init_offset
 				let offset = init_offset + ((SPACE_BETWEEN_DOTS - (y*init_offset)))/y //rotation;
 				offset *= offset_list[i];
 				return `rotate(${rotation}) rotate(${toDegrees(offset)}) translate(${y}, 0)`
+			})
+			.attr("fill", "#fff")
+	}
+
+	addGameDiamonds() {
+		const { svg, rootNode } = this;
+		const { GAME_COUNTER_RADIUS } = this.STYLE;
+		const DIAMOND_WIDTH = GAME_COUNTER_RADIUS*3;
+		const HALF_DIAMOND_WIDTH = DIAMOND_WIDTH/2;
+		const diamondData = rootNode.descendants().filter((team, i) => {
+			console.log(team);
+			return i >= 4 && i % 2 == 0;
+		})
+		svg.append("g").selectAll('rect')
+			.data(diamondData)
+			.enter()
+			.append("rect")
+			.attr("width", DIAMOND_WIDTH)
+			.attr("height", DIAMOND_WIDTH)
+			.attr("transform", d => {
+				const rotation = toDegrees(d.x0)-90;
+				const y = ((d.y0 + d.y1) / 2) - HALF_DIAMOND_WIDTH;
+				return `rotate(${rotation}) translate(0,${-HALF_DIAMOND_WIDTH}) translate(${y}, 0) rotate(45 ${HALF_DIAMOND_WIDTH} ${HALF_DIAMOND_WIDTH})`;
 			})
 			.attr("fill", "#fff")
 	}
