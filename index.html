@@ -1,3 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <html>
 		<style>
 		.round-arc {
@@ -25,14 +29,17 @@
 			justify-content: center;
 		}
 		#bracket svg {
-			width: 50%;
-			max-width: 700px;
+			width: 700px;
 			height: 100%;
 		}
-		@media (max-width: 1000px) {
+		@media (max-width: 767px) {
 			#bracket svg {
 				width: calc(100% - 6em);
-				max-width: none;
+			}
+		}
+		@media (max-device-width: 767px) {
+			#bracket svg {
+				width: calc(100% - 6em);
 			}
 		}
 		#playoffs-logo {

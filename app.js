@@ -299,6 +299,7 @@ class RadialBracket {
 		.attr("r", rootNode.y1-1)
 		
 		winner.append('image')
+			.attr('xlink:href', './trophy.png')
 			.attr('href', './trophy.png')
 			.attr("height", imgHeight)
 			.attr("width", imgWidth)
