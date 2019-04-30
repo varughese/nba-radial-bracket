@@ -90,7 +90,7 @@ class RadialBracket {
 			DOM_ID: id,
 			GAME_COUNTER_RADIUS: radius/100,
 			SPACE_BETWEEN_DOTS: 3.2*(radius/100),
-			DOTS_DISTANCE: 13,
+			DOTS_DISTANCE: 10,
 			TEXT_OFFSET: 25
 		};
 		
@@ -116,6 +116,7 @@ class RadialBracket {
 		this.addText();
 		this.addGamesWonDots();
 		this.addGameDiamonds();
+		this.addWinner();
 	}
 
 	buildParitionLayout() {
@@ -262,11 +263,13 @@ class RadialBracket {
 		const { GAME_COUNTER_RADIUS } = this.STYLE;
 		const DIAMOND_WIDTH = GAME_COUNTER_RADIUS*3;
 		const HALF_DIAMOND_WIDTH = DIAMOND_WIDTH/2;
+		const winnerDiamonds = [{x0: 0, y0: 70, y1: 70}, {x0: Math.PI, y0: 70, y1: 70}];
 		const diamondData = rootNode.descendants().filter((team, i) => {
-			console.log(team);
 			return i >= 4 && i % 2 == 0;
-		})
-		svg.append("g").selectAll('rect')
+		}).concat(winnerDiamonds);
+		const rects = svg.append("g")
+	
+		rects.selectAll('rect')
 			.data(diamondData)
 			.enter()
 			.append("rect")
@@ -277,7 +280,30 @@ class RadialBracket {
 				const y = ((d.y0 + d.y1) / 2) - HALF_DIAMOND_WIDTH;
 				return `rotate(${rotation}) translate(0,${-HALF_DIAMOND_WIDTH}) translate(${y}, 0) rotate(45 ${HALF_DIAMOND_WIDTH} ${HALF_DIAMOND_WIDTH})`;
 			})
+			.attr("clip-path", "url(#winner-circle-mask)")
 			.attr("fill", "#fff")
+
+	}
+
+	addWinner() {
+		const { svg, rootNode } = this;
+		const innerDiameter = 2*rootNode.y1;
+		const imgHeight = innerDiameter-25;
+		const ratioOfImage = (256/470);
+		const imgWidth = ratioOfImage * imgHeight;
+		const winner = svg.append('g').attr("id", "trophys")
+		
+		winner.append("circle")
+		.attr("class", "light-gray")
+		.attr("r", rootNode.y1-1)
+		
+		winner.append('image')
+			.attr('href', './trophy.png')
+			.attr("height", imgHeight)
+			.attr("width", imgWidth)
+			.attr("transform", trans(-imgWidth/2,-imgHeight/2))
+
+		
 	}
 }
 
