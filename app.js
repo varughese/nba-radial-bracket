@@ -90,7 +90,8 @@ class RadialBracket {
 			DOM_ID: id,
 			GAME_COUNTER_RADIUS: radius/100,
 			SPACE_BETWEEN_DOTS: 3.2*(radius/100),
-			DOTS_DISTANCE: 15
+			DOTS_DISTANCE: 13,
+			TEXT_OFFSET: 25
 		};
 		
 	}
@@ -174,7 +175,7 @@ class RadialBracket {
 
 	addText() {
 		const { svg, rootNode } = this;
-		const TEXT_OFFSET = 33;
+		const { TEXT_OFFSET } = this.STYLE;
 		const arcGenerator = d3.arc()
 			.startAngle(d => d.x0)
 			.endAngle(d => d.x1)
@@ -200,7 +201,6 @@ class RadialBracket {
 			.attr("startOffset", "25%")
 			.attr("class", "team-name")
 			.style("font-weight", "bold")
-			.style("font-size", this.STYLE.RADIUS/13+"px")
 			.attr("xlink:href", d => `#${d.data.name}${d.height}${(Number(d.x0+d.x1)*1000).toFixed(0)}`)
 			.text(d => d.data.name);
 			
