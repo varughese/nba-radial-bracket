@@ -15,7 +15,7 @@ function transformToD3Tree(teams) {
 		"name": "PHI",
 		"children": [
 		  {
-			"name": "MIL",
+			"name": "EAS",
 			"children": [
 				{
 					"name": "BOS",
@@ -46,7 +46,7 @@ function transformToD3Tree(teams) {
 			]
 		  },
 		  {
-			"name": "HOU",
+			"name": "WES",
 			"children": [
 				{
 					"name": "POR",
@@ -78,8 +78,252 @@ function transformToD3Tree(teams) {
 		  }
 		]
 	  };
-	return d3.hierarchy(obj)
+	obj = {"children":[{"children":[{"children":[{"children":[{"name":"Cleveland Cavaliers","points":4},{"name":"Indiana Pacers","points":3}],"name":"Cleveland Cavaliers","conference":"EAST","points":4},{"children":[{"name":"Toronto Raptors","points":4},{"name":"Washington Wizards","points":2}],"name":"Toronto Raptors","conference":"EAST","points":0}],"name":"Cleveland Cavaliers","conference":"EAST","points":4},{"children":[{"children":[{"name":"Boston Celtics","points":4},{"name":"Milwaukee Bucks","points":3}],"name":"Boston Celtics","conference":"EAST","points":4},{"children":[{"name":"Philadelphia 76ers","points":4},{"name":"Miami Heat","points":1}],"name":"Philadelphia 76ers","conference":"EAST","points":1}],"name":"Boston Celtics","conference":"EAST","points":3}],"name":"Cleveland Cavaliers","conference":"EAST","points":0},{"children":[{"children":[{"children":[{"name":"Golden State Warriors","points":4},{"name":"San Antonio Spurs","points":1}],"name":"Golden State Warriors","conference":"WEST","points":4},{"children":[{"name":"New Orleans Pelicans","points":4},{"name":"Portland Trail Blazers","points":0}],"name":"New Orleans Pelicans","conference":"WEST","points":1}],"name":"Golden State Warriors","conference":"WEST","points":4},{"children":[{"children":[{"name":"Houston Rockets","points":4},{"name":"Minnesota Timberwolves","points":1}],"name":"Houston Rockets","conference":"WEST","points":4},{"children":[{"name":"Utah Jazz","points":4},{"name":"Oklahoma City Thunder","points":2}],"name":"Utah Jazz","conference":"WEST","points":1}],"name":"Houston Rockets","conference":"WEST","points":3}],"name":"Golden State Warriors","conference":"WEST","points":4}],"name":"Golden State Warriors","conference":"BOTH"};
+	return d3.hierarchy(obj);
 }
+
+const TEAM_INFO = {
+	"Atlanta Hawks": {
+		"teamId": 1610612737,
+		"abbreviation": "ATL",
+		"teamName": "Atlanta Hawks",
+		"simpleName": "Hawks",
+		"location": "Atlanta",
+		"conference": "EAST"
+	},
+	"Boston Celtics": {
+		"teamId": 1610612738,
+		"abbreviation": "BOS",
+		"teamName": "Boston Celtics",
+		"simpleName": "Celtics",
+		"location": "Boston",
+		"conference": "EAST"
+	},
+	"Brooklyn Nets": {
+		"teamId": 1610612751,
+		"abbreviation": "BKN",
+		"teamName": "Brooklyn Nets",
+		"simpleName": "Nets",
+		"location": "Brooklyn",
+		"conference": "EAST"
+	},
+	"Charlotte Hornets": {
+		"teamId": 1610612766,
+		"abbreviation": "CHA",
+		"teamName": "Charlotte Hornets",
+		"simpleName": "Hornets",
+		"location": "Charlotte",
+		"conference": "EAST"
+	},
+	"Chicago Bulls": {
+		"teamId": 1610612741,
+		"abbreviation": "CHI",
+		"teamName": "Chicago Bulls",
+		"simpleName": "Bulls",
+		"location": "Chicago",
+		"conference": "EAST"
+	},
+	"Cleveland Cavaliers": {
+		"teamId": 1610612739,
+		"abbreviation": "CLE",
+		"teamName": "Cleveland Cavaliers",
+		"simpleName": "Cavaliers",
+		"location": "Cleveland",
+		"conference": "EAST"
+	},
+	"Dallas Mavericks": {
+		"teamId": 1610612742,
+		"abbreviation": "DAL",
+		"teamName": "Dallas Mavericks",
+		"simpleName": "Mavericks",
+		"location": "Dallas",
+		"conference": "WEST"
+	},
+	"Denver Nuggets": {
+		"teamId": 1610612743,
+		"abbreviation": "DEN",
+		"teamName": "Denver Nuggets",
+		"simpleName": "Nuggets",
+		"location": "Denver",
+		"conference": "WEST"
+	},
+	"Detroit Pistons": {
+		"teamId": 1610612765,
+		"abbreviation": "DET",
+		"teamName": "Detroit Pistons",
+		"simpleName": "Pistons",
+		"location": "Detroit",
+		"conference": "EAST"
+	},
+	"Golden State Warriors": {
+		"teamId": 1610612744,
+		"abbreviation": "GSW",
+		"teamName": "Golden State Warriors",
+		"simpleName": "Warriors",
+		"location": "Golden State",
+		"conference": "WEST"
+	},
+	"Houston Rockets": {
+		"teamId": 1610612745,
+		"abbreviation": "HOU",
+		"teamName": "Houston Rockets",
+		"simpleName": "Rockets",
+		"location": "Houston",
+		"conference": "WEST"
+	},
+	"Indiana Pacers": {
+		"teamId": 1610612754,
+		"abbreviation": "IND",
+		"teamName": "Indiana Pacers",
+		"simpleName": "Pacers",
+		"location": "Indiana",
+		"conference": "EAST"
+	},
+	"Los Angeles Clippers": {
+		"teamId": 1610612746,
+		"abbreviation": "LAC",
+		"teamName": "Los Angeles Clippers",
+		"simpleName": "Clippers",
+		"location": "Los Angeles",
+		"conference": "WEST"
+	},
+	"Los Angeles Lakers": {
+		"teamId": 1610612747,
+		"abbreviation": "LAL",
+		"teamName": "Los Angeles Lakers",
+		"simpleName": "Lakers",
+		"location": "Los Angeles",
+		"conference": "WEST"
+	},
+	"Memphis Grizzlies": {
+		"teamId": 1610612763,
+		"abbreviation": "MEM",
+		"teamName": "Memphis Grizzlies",
+		"simpleName": "Grizzlies",
+		"location": "Memphis",
+		"conference": "WEST"
+	},
+	"Miami Heat": {
+		"teamId": 1610612748,
+		"abbreviation": "MIA",
+		"teamName": "Miami Heat",
+		"simpleName": "Heat",
+		"location": "Miami",
+		"conference": "EAST"
+	},
+	"Milwaukee Bucks": {
+		"teamId": 1610612749,
+		"abbreviation": "MIL",
+		"teamName": "Milwaukee Bucks",
+		"simpleName": "Bucks",
+		"location": "Milwaukee",
+		"conference": "EAST"
+	},
+	"Minnesota Timberwolves": {
+		"teamId": 1610612750,
+		"abbreviation": "MIN",
+		"teamName": "Minnesota Timberwolves",
+		"simpleName": "Timberwolves",
+		"location": "Minnesota",
+		"conference": "WEST"
+	},
+	"New Orleans Pelicans": {
+		"teamId": 1610612740,
+		"abbreviation": "NOP",
+		"teamName": "New Orleans Pelicans",
+		"simpleName": "Pelicans",
+		"location": "New Orleans",
+		"conference": "WEST"
+	},
+	"New York Knicks": {
+		"teamId": 1610612752,
+		"abbreviation": "NYK",
+		"teamName": "New York Knicks",
+		"simpleName": "Knicks",
+		"location": "New York",
+		"conference": "EAST"
+	},
+	"Oklahoma City Thunder": {
+		"teamId": 1610612760,
+		"abbreviation": "OKC",
+		"teamName": "Oklahoma City Thunder",
+		"simpleName": "Thunder",
+		"location": "Oklahoma City",
+		"conference": "WEST"
+	},
+	"Orlando Magic": {
+		"teamId": 1610612753,
+		"abbreviation": "ORL",
+		"teamName": "Orlando Magic",
+		"simpleName": "Magic",
+		"location": "Orlando",
+		"conference": "EAST"
+	},
+	"Philadelphia 76ers": {
+		"teamId": 1610612755,
+		"abbreviation": "PHI",
+		"teamName": "Philadelphia 76ers",
+		"simpleName": "76ers",
+		"location": "Philadelphia",
+		"conference": "EAST"
+	},
+	"Phoenix Suns": {
+		"teamId": 1610612756,
+		"abbreviation": "PHX",
+		"teamName": "Phoenix Suns",
+		"simpleName": "Suns",
+		"location": "Phoenix",
+		"conference": "WEST"
+	},
+	"Portland Trail Blazers": {
+		"teamId": 1610612757,
+		"abbreviation": "POR",
+		"teamName": "Portland Trail Blazers",
+		"simpleName": "Trail Blazers",
+		"location": "Portland",
+		"conference": "WEST"
+	},
+	"Sacramento Kings": {
+		"teamId": 1610612758,
+		"abbreviation": "SAC",
+		"teamName": "Sacramento Kings",
+		"simpleName": "Kings",
+		"location": "Sacramento",
+		"conference": "WEST"
+	},
+	"San Antonio Spurs": {
+		"teamId": 1610612759,
+		"abbreviation": "SAS",
+		"teamName": "San Antonio Spurs",
+		"simpleName": "Spurs",
+		"location": "San Antonio",
+		"conference": "WEST"
+	},
+	"Toronto Raptors": {
+		"teamId": 1610612761,
+		"abbreviation": "TOR",
+		"teamName": "Toronto Raptors",
+		"simpleName": "Raptors",
+		"location": "Toronto",
+		"conference": "EAST"
+	},
+	"Utah Jazz": {
+		"teamId": 1610612762,
+		"abbreviation": "UTA",
+		"teamName": "Utah Jazz",
+		"simpleName": "Jazz",
+		"location": "Utah",
+		"conference": "WEST"
+	},
+	"Washington Wizards": {
+		"teamId": 1610612764,
+		"abbreviation": "WAS",
+		"teamName": "Washington Wizards",
+		"simpleName": "Wizards",
+		"location": "Washington",
+		"conference": "EAST"
+	}
+};
 
 class RadialBracket {
 	constructor(teams, radius=300, id='#bracket') {
@@ -204,7 +448,7 @@ class RadialBracket {
 			.attr("class", "team-name")
 			.style("font-weight", "bold")
 			.attr("xlink:href", d => `#${d.data.name}${d.height}${(Number(d.x0+d.x1)*1000).toFixed(0)}`)
-			.text(d => d.data.name);
+			.text(d => TEAM_INFO[d.data.name].abbreviation);
 			
 
 		// svg.append("g")

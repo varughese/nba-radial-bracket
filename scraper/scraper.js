@@ -4,6 +4,7 @@ const fs = require("fs");
 const util = require('util');  
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
+const TEAM_INFO = require("./team-info");
 
 async function scrape(url, year) {
 	const CACHE_PATH = `./cache/${year}.html`;
@@ -60,7 +61,62 @@ function getRows($) {
 function transform(series) {
 	series = [{"winning":"Golden State Warriors","winningPoints":4,"losing":"Cleveland Cavaliers","losingPoints":0,"round":"Finals"},{"winning":"Cleveland Cavaliers","winningPoints":4,"losing":"Boston Celtics","losingPoints":3,"round":"Eastern Conference Finals"},{"winning":"Golden State Warriors","winningPoints":4,"losing":"Houston Rockets","losingPoints":3,"round":"Western Conference Finals"},{"winning":"Boston Celtics","winningPoints":4,"losing":"Philadelphia 76ers","losingPoints":1,"round":"Eastern Conference Semifinals"},{"winning":"Cleveland Cavaliers","winningPoints":4,"losing":"Toronto Raptors","losingPoints":0,"round":"Eastern Conference Semifinals"},{"winning":"Golden State Warriors","winningPoints":4,"losing":"New Orleans Pelicans","losingPoints":1,"round":"Western Conference Semifinals"},{"winning":"Houston Rockets","winningPoints":4,"losing":"Utah Jazz","losingPoints":1,"round":"Western Conference Semifinals"},{"winning":"Boston Celtics","winningPoints":4,"losing":"Milwaukee Bucks","losingPoints":3,"round":"Eastern Conference First Round"},{"winning":"Cleveland Cavaliers","winningPoints":4,"losing":"Indiana Pacers","losingPoints":3,"round":"Eastern Conference First Round"},{"winning":"Philadelphia 76ers","winningPoints":4,"losing":"Miami Heat","losingPoints":1,"round":"Eastern Conference First Round"},{"winning":"Toronto Raptors","winningPoints":4,"losing":"Washington Wizards","losingPoints":2,"round":"Eastern Conference First Round"},{"winning":"Golden State Warriors","winningPoints":4,"losing":"San Antonio Spurs","losingPoints":1,"round":"Western Conference First Round"},{"winning":"Houston Rockets","winningPoints":4,"losing":"Minnesota Timberwolves","losingPoints":1,"round":"Western Conference First Round"},{"winning":"New Orleans Pelicans","winningPoints":4,"losing":"Portland Trail Blazers","losingPoints":0,"round":"Western Conference First Round"},{"winning":"Utah Jazz","winningPoints":4,"losing":"Oklahoma City Thunder","losingPoints":2,"round":"Western Conference First Round"}];
 	transformRounds(series);
-	console.log(series);
+	series.sort((a, b) => b.round - a.round);
+	const tree = convertToTree(series);
+	console.log(JSON.stringify(tree));
+}
+
+
+function convertToTree(series) {
+	series = padSeriesWithFillerGames(series);
+	const root = { children: [] };
+	const TOTAL_GAMES = 15;
+	const teamGameMap = {};
+	series.forEach((match, i) => {
+		if(i == 0) return;
+		teamGameMap[match.winning] = teamGameMap[match.winning] || [];
+		teamGameMap[match.winning].push(i);
+	});
+	let tree = convertToTreeRecursive(series[0]);
+	function convertToTreeRecursive(match) {
+		let node = { children: [] };
+		if(match.round == 0) {
+			node = {
+				children: [
+					{ name: match.winning, points: match.winningPoints },
+					{ name: match.losing, points: match.losingPoints }
+				]
+			}
+		} else {
+			const topTeamNextMatch = teamGameMap[match.winning].shift();
+			const bottomTeamNextMatch = teamGameMap[match.losing].shift();
+			node.children[0] = convertToTreeRecursive(series[topTeamNextMatch]);
+			node.children[1] = convertToTreeRecursive(series[bottomTeamNextMatch]);
+			node.children[0].points = match.winningPoints;
+			node.children[1].points = match.losingPoints;
+			if(match.conference === "BOTH") {
+				// EAST goes on top so it is on right side
+				if(node.children[0].conference === "WEST") {
+					const temp = node.children[0];
+					node.children[0] = node.children[1];
+					node.children[1] = temp;
+				}
+			}
+		}
+		Object.assign(node, {name: match.winning, conference: match.conference });
+		return node;
+	}
+	
+	return tree;
+}
+
+
+
+function padSeriesWithFillerGames(series) {
+	const TOTAL_GAMES = 15;
+	const topad = TOTAL_GAMES - series.length;
+	series = new Array(topad).fill({ winning: "" }).concat(series);
+	return series;
 }
 
 function transformRounds(series) {
@@ -69,14 +125,20 @@ function transformRounds(series) {
 		const roundInfo = match.round;
 		let roundRank = -1;
 		for(let r=0; r<rounds.length; r++) {
-			if(roundInfo.toUpperCase().indexOf(rounds[r]) > 0) {
+			if(roundInfo.toUpperCase().indexOf(rounds[r]) > -1) {
 				roundRank = r;
 				break;
 			}
 		}
 		match.round = roundRank;
+		let conference = "BOTH"; 
+		if(rounds[roundRank] !== "FINALS") {
+			conference = TEAM_INFO[match.winning].conference;
+		}
+		match.conference = conference;
 		return match;
 	});
+
 	return series;
 }
 
