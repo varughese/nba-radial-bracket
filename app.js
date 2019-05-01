@@ -11,7 +11,7 @@ function rotate(radians) {
 }
 
 function transformToD3Tree(teams) {
-	const obj = {
+	let obj = {
 		"name": "PHI",
 		"children": [
 		  {
