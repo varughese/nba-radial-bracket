@@ -59,10 +59,10 @@ function getRows($) {
 }
 
 function transform(series) {
-	series = [{"winning":"Golden State Warriors","winningPoints":4,"losing":"Cleveland Cavaliers","losingPoints":0,"round":"Finals"},{"winning":"Cleveland Cavaliers","winningPoints":4,"losing":"Boston Celtics","losingPoints":3,"round":"Eastern Conference Finals"},{"winning":"Golden State Warriors","winningPoints":4,"losing":"Houston Rockets","losingPoints":3,"round":"Western Conference Finals"},{"winning":"Boston Celtics","winningPoints":4,"losing":"Philadelphia 76ers","losingPoints":1,"round":"Eastern Conference Semifinals"},{"winning":"Cleveland Cavaliers","winningPoints":4,"losing":"Toronto Raptors","losingPoints":0,"round":"Eastern Conference Semifinals"},{"winning":"Golden State Warriors","winningPoints":4,"losing":"New Orleans Pelicans","losingPoints":1,"round":"Western Conference Semifinals"},{"winning":"Houston Rockets","winningPoints":4,"losing":"Utah Jazz","losingPoints":1,"round":"Western Conference Semifinals"},{"winning":"Boston Celtics","winningPoints":4,"losing":"Milwaukee Bucks","losingPoints":3,"round":"Eastern Conference First Round"},{"winning":"Cleveland Cavaliers","winningPoints":4,"losing":"Indiana Pacers","losingPoints":3,"round":"Eastern Conference First Round"},{"winning":"Philadelphia 76ers","winningPoints":4,"losing":"Miami Heat","losingPoints":1,"round":"Eastern Conference First Round"},{"winning":"Toronto Raptors","winningPoints":4,"losing":"Washington Wizards","losingPoints":2,"round":"Eastern Conference First Round"},{"winning":"Golden State Warriors","winningPoints":4,"losing":"San Antonio Spurs","losingPoints":1,"round":"Western Conference First Round"},{"winning":"Houston Rockets","winningPoints":4,"losing":"Minnesota Timberwolves","losingPoints":1,"round":"Western Conference First Round"},{"winning":"New Orleans Pelicans","winningPoints":4,"losing":"Portland Trail Blazers","losingPoints":0,"round":"Western Conference First Round"},{"winning":"Utah Jazz","winningPoints":4,"losing":"Oklahoma City Thunder","losingPoints":2,"round":"Western Conference First Round"}];
 	transformRounds(series);
 	series.sort((a, b) => b.round - a.round);
 	const tree = convertToTree(series);
+	// console.log(series);
 	console.log(JSON.stringify(tree));
 }
 
@@ -115,7 +115,9 @@ function convertToTree(series) {
 function padSeriesWithFillerGames(series) {
 	const TOTAL_GAMES = 15;
 	const topad = TOTAL_GAMES - series.length;
-	series = new Array(topad).fill({ winning: "" }).concat(series);
+	const filler = new Array(topad).fill({ winning: "" });
+	
+	series = filler.concat(series);
 	return series;
 }
 
@@ -146,7 +148,8 @@ async function getPlayoffData(year) {
 	const url = `https://www.basketball-reference.com/playoffs/NBA_${year}.html`;
 	const $ = await scrape(url, year);
 	const data = parse($);
+	transform(data);
 }
 
-// getPlayoffData(2018);
-transform();
+getPlayoffData(2017);
+// transform();

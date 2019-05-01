@@ -5,7 +5,9 @@
 		"teamName": "Atlanta Hawks",
 		"simpleName": "Hawks",
 		"location": "Atlanta",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#E03A3E",
+		"color2": "#C1D32F"
 	},
 	"Boston Celtics": {
 		"teamId": 1610612738,
@@ -13,7 +15,9 @@
 		"teamName": "Boston Celtics",
 		"simpleName": "Celtics",
 		"location": "Boston",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#007a33",
+		"color2": "#BA9653"
 	},
 	"Brooklyn Nets": {
 		"teamId": 1610612751,
@@ -21,7 +25,9 @@
 		"teamName": "Brooklyn Nets",
 		"simpleName": "Nets",
 		"location": "Brooklyn",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#000",
+		"color2": "#fff"
 	},
 	"Charlotte Hornets": {
 		"teamId": 1610612766,
@@ -29,7 +35,9 @@
 		"teamName": "Charlotte Hornets",
 		"simpleName": "Hornets",
 		"location": "Charlotte",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#1D1160",
+		"color2": "#00788c"
 	},
 	"Chicago Bulls": {
 		"teamId": 1610612741,
@@ -37,7 +45,9 @@
 		"teamName": "Chicago Bulls",
 		"simpleName": "Bulls",
 		"location": "Chicago",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#CE1141",
+		"color2": "#fff"
 	},
 	"Cleveland Cavaliers": {
 		"teamId": 1610612739,
@@ -45,7 +55,9 @@
 		"teamName": "Cleveland Cavaliers",
 		"simpleName": "Cavaliers",
 		"location": "Cleveland",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#6f263d",
+		"color2": "#ffb81c"
 	},
 	"Dallas Mavericks": {
 		"teamId": 1610612742,
@@ -53,7 +65,9 @@
 		"teamName": "Dallas Mavericks",
 		"simpleName": "Mavericks",
 		"location": "Dallas",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#00538C",
+		"color2": "#fff"
 	},
 	"Denver Nuggets": {
 		"teamId": 1610612743,
@@ -61,7 +75,9 @@
 		"teamName": "Denver Nuggets",
 		"simpleName": "Nuggets",
 		"location": "Denver",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#00285E",
+		"color2": "#ffc72c"
 	},
 	"Detroit Pistons": {
 		"teamId": 1610612765,
@@ -69,7 +85,9 @@
 		"teamName": "Detroit Pistons",
 		"simpleName": "Pistons",
 		"location": "Detroit",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#ED174C",
+		"color2": "#006BB6"
 	},
 	"Golden State Warriors": {
 		"teamId": 1610612744,
@@ -77,7 +95,9 @@
 		"teamName": "Golden State Warriors",
 		"simpleName": "Warriors",
 		"location": "Golden State",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#006BB6",
+		"color2": "#fdb927"
 	},
 	"Houston Rockets": {
 		"teamId": 1610612745,
@@ -85,7 +105,9 @@
 		"teamName": "Houston Rockets",
 		"simpleName": "Rockets",
 		"location": "Houston",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#ce1141",
+		"color2": "#fff"
 	},
 	"Indiana Pacers": {
 		"teamId": 1610612754,
@@ -93,7 +115,9 @@
 		"teamName": "Indiana Pacers",
 		"simpleName": "Pacers",
 		"location": "Indiana",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#fdbb30",
+		"color2": "#002D62"
 	},
 	"Los Angeles Clippers": {
 		"teamId": 1610612746,
@@ -101,7 +125,9 @@
 		"teamName": "Los Angeles Clippers",
 		"simpleName": "Clippers",
 		"location": "Los Angeles",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#ED174C",
+		"color2": "#fff"
 	},
 	"Los Angeles Lakers": {
 		"teamId": 1610612747,
@@ -109,7 +135,9 @@
 		"teamName": "Los Angeles Lakers",
 		"simpleName": "Lakers",
 		"location": "Los Angeles",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#ffc72c",
+		"color2": "#552583"
 	},
 	"Memphis Grizzlies": {
 		"teamId": 1610612763,
@@ -117,7 +145,9 @@
 		"teamName": "Memphis Grizzlies",
 		"simpleName": "Grizzlies",
 		"location": "Memphis",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#6189B9",
+		"color2": "#00285E"
 	},
 	"Miami Heat": {
 		"teamId": 1610612748,
@@ -125,7 +155,9 @@
 		"teamName": "Miami Heat",
 		"simpleName": "Heat",
 		"location": "Miami",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#98002e",
+		"color2": "#F9A01B"
 	},
 	"Milwaukee Bucks": {
 		"teamId": 1610612749,
@@ -133,7 +165,9 @@
 		"teamName": "Milwaukee Bucks",
 		"simpleName": "Bucks",
 		"location": "Milwaukee",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#00471b",
+		"color2": "#eee1c6"
 	},
 	"Minnesota Timberwolves": {
 		"teamId": 1610612750,
@@ -141,7 +175,9 @@
 		"teamName": "Minnesota Timberwolves",
 		"simpleName": "Timberwolves",
 		"location": "Minnesota",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#0c2340",
+		"color2": "#236192"
 	},
 	"New Orleans Pelicans": {
 		"teamId": 1610612740,
@@ -149,7 +185,9 @@
 		"teamName": "New Orleans Pelicans",
 		"simpleName": "Pelicans",
 		"location": "New Orleans",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#002b5c",
+		"color2": "#E31837"
 	},
 	"New York Knicks": {
 		"teamId": 1610612752,
@@ -157,7 +195,9 @@
 		"teamName": "New York Knicks",
 		"simpleName": "Knicks",
 		"location": "New York",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#006BB6",
+		"color2": "#f58426"
 	},
 	"Oklahoma City Thunder": {
 		"teamId": 1610612760,
@@ -165,7 +205,9 @@
 		"teamName": "Oklahoma City Thunder",
 		"simpleName": "Thunder",
 		"location": "Oklahoma City",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#007AC1",
+		"color2": "#ef3b24"
 	},
 	"Orlando Magic": {
 		"teamId": 1610612753,
@@ -173,7 +215,9 @@
 		"teamName": "Orlando Magic",
 		"simpleName": "Magic",
 		"location": "Orlando",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#0057b8",
+		"color2": "#c2ccd2"
 	},
 	"Philadelphia 76ers": {
 		"teamId": 1610612755,
@@ -181,7 +225,9 @@
 		"teamName": "Philadelphia 76ers",
 		"simpleName": "76ers",
 		"location": "Philadelphia",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#006BB6",
+		"color2": "#ED174C"
 	},
 	"Phoenix Suns": {
 		"teamId": 1610612756,
@@ -189,7 +235,9 @@
 		"teamName": "Phoenix Suns",
 		"simpleName": "Suns",
 		"location": "Phoenix",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#1D1160",
+		"color2": "#e56020"
 	},
 	"Portland Trail Blazers": {
 		"teamId": 1610612757,
@@ -197,7 +245,9 @@
 		"teamName": "Portland Trail Blazers",
 		"simpleName": "Trail Blazers",
 		"location": "Portland",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#e03a3e",
+		"color2": "#000"
 	},
 	"Sacramento Kings": {
 		"teamId": 1610612758,
@@ -205,7 +255,9 @@
 		"teamName": "Sacramento Kings",
 		"simpleName": "Kings",
 		"location": "Sacramento",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#592d81",
+		"color2": "#63727a"
 	},
 	"San Antonio Spurs": {
 		"teamId": 1610612759,
@@ -213,7 +265,9 @@
 		"teamName": "San Antonio Spurs",
 		"simpleName": "Spurs",
 		"location": "San Antonio",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#000",
+		"color2": "#c3ced4"
 	},
 	"Toronto Raptors": {
 		"teamId": 1610612761,
@@ -221,7 +275,9 @@
 		"teamName": "Toronto Raptors",
 		"simpleName": "Raptors",
 		"location": "Toronto",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#000000",
+		"color2": "#ce1141"
 	},
 	"Utah Jazz": {
 		"teamId": 1610612762,
@@ -229,7 +285,9 @@
 		"teamName": "Utah Jazz",
 		"simpleName": "Jazz",
 		"location": "Utah",
-		"conference": "WEST"
+		"conference": "WEST",
+		"color1": "#002b5c",
+		"color2": "#f8a01b"
 	},
 	"Washington Wizards": {
 		"teamId": 1610612764,
@@ -237,6 +295,8 @@
 		"teamName": "Washington Wizards",
 		"simpleName": "Wizards",
 		"location": "Washington",
-		"conference": "EAST"
+		"conference": "EAST",
+		"color1": "#002b5c",
+		"color2": "#e31937"
 	}
 }
