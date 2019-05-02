@@ -1,3 +1,7 @@
+import * as d3 from 'd3';
+import './style.css';
+import Trophy from './assets/trophy.png';
+
 function trans(x, y) {
 	return 'translate('+x+','+y+')';
 }
@@ -6,91 +10,11 @@ function toDegrees(radians) {
 	return (radians * 180) / Math.PI;
 }
 
-function rotate(radians) {
-	return `rotate(${toDegrees(radians)})`;
-}
-
-function getTeamInfo(d) {
-	if(d.data.name) return TEAM_INFO[d.data.name];
-	else return {};
-}
-let TEAM_INFO = {};
-
-function transformToD3Tree(teams) {
-	let obj = {
-		"name": "PHI",
-		"children": [
-		  {
-			"name": "EAS",
-			"children": [
-				{
-					"name": "BOS",
-					"children": [
-						{ "name": "SPU", "children": [
-							{ "name": "NUG"},
-							{ "name": "TOR"}
-						] },
-						{ "name": "GSW", "children": [
-							{ "name": "BOS"},
-							{ "name": "TOR"}
-						] }
-					]
-				},
-				{
-					"name": "POR",
-					"children": [
-						{ "name": "ORL", "children": [
-							{ "name": "PHI"},
-							{ "name": "TOR"}
-						] },
-						{ "name": "GSW", "children": [
-							{ "name": "BOS"},
-							{ "name": "TOR"}
-						] }
-					]
-				},
-			]
-		  },
-		  {
-			"name": "WES",
-			"children": [
-				{
-					"name": "POR",
-					"children": [
-						{ "name": "ORL", "children": [
-							{ "name": "PHI"},
-							{ "name": "TOR"}
-						] },
-						{ "name": "GSW", "children": [
-							{ "name": "BOS"},
-							{ "name": "TOR"}
-						] }
-					]
-				},
-				{
-					"name": "POR",
-					"children": [
-						{ "name": "ORL", "children": [
-							{ "name": "BOS"},
-							{ "name": "TOR"}
-						] },
-						{ "name": "GSW", "children": [
-							{ "name": "BOS"},
-							{ "name": "TOR"}
-						] }
-					]
-				},
-			]
-		  }
-		]
-	  };
-	return d3.hierarchy(teams);
-}
-
-class RadialBracket {
-	constructor(teams, radius=300, id='#bracket') {
+export default class RadialBracket {
+	constructor(teams, radius=300, id='#bracket', TEAM_INFO) {
 		// Convert our team data into a hierachy understandable by d3
-		this.rootNode = transformToD3Tree(teams);
+		this.rootNode = d3.hierarchy(teams);
+		this.TEAM_INFO = TEAM_INFO;
 		this.STYLE = {
 			RADIUS: radius,
 			DOM_ID: id,
@@ -102,11 +26,19 @@ class RadialBracket {
 		
 	}
 
-	setStyle(style) {
-		// do this es6 way
-		if(style.RADIUS)
-			this.STYLE.RADIUS = style.RADIUS;
+	config(config) {
+		this.STYLE = Object.assign(this.STYLE, config.style);
+		if(config.TEAM_INFO) this.TEAM_INFO = config.TEAM_INFO;
+		if(config.teams) this.rootNode = d3.hierarchy(config.teams);
 		return this;
+	}
+
+	getTeamInfo(d) {
+		const name = d.data.name;
+		if(name && this.TEAM_INFO[name])
+			return this.TEAM_INFO[name];
+		else
+			return { abbreviation: name };
 	}
 
 	erase() {
@@ -114,7 +46,7 @@ class RadialBracket {
 		d3.select(DOM_ID).selectAll('*').remove();
 	}
 
-	build() {
+	render() {
 		this.erase();
 		this.buildParitionLayout();
 		this.appendSvg();
@@ -141,7 +73,7 @@ class RadialBracket {
 	}
 
 	getArcGenerator() {
-		// d3 arc is a tool to create the semi-circle things
+		// d3 arc is a tool to create the rounded semi-circle things
 		// called arcs
 		return d3.arc()
 			.startAngle(d => d.x0)
@@ -154,8 +86,6 @@ class RadialBracket {
 		const { RADIUS, DOM_ID } = this.STYLE;
 		this.svg = d3.select(DOM_ID)
 			.append('svg')
-			//   .attr('width', RADIUS*2+6)
-			//   .attr('height', RADIUS*2+6)
 			  .attr('viewBox', `0 0 ${RADIUS*2+6} ${RADIUS*2+6}`)
 			.append('g')
 			  .attr("id", "center")
@@ -172,7 +102,7 @@ class RadialBracket {
 			.append('path')
 			.attr('d', arcGenerator)
 			.attr('class', d => {
-				if(getTeamInfo(d).color1) return 'round-arc';
+				if(this.getTeamInfo(d).color1) return 'round-arc';
 				// You can figure out which "row" based on the value. Since it 
 				// is a tree, you can use log base 2 of how many children it has
 				// to figure out what level of the tree it is
@@ -180,7 +110,7 @@ class RadialBracket {
 				const color = colorRow ? 'light-gray' : 'dark-gray';
 				return color + ' round-arc';
 			})
-			.attr("fill", d => getTeamInfo(d).color1)
+			.attr("fill", d => this.getTeamInfo(d).color1)
 	}
 
 	addText() {
@@ -212,8 +142,8 @@ class RadialBracket {
 			.attr("class", "team-name")
 			.style("font-weight", "bold")
 			.attr("xlink:href", d => `#${d.data.name}${d.height}${(Number(d.x0+d.x1)*1000).toFixed(0)}`)
-			.text(d => getTeamInfo(d).abbreviation)
-			.attr("fill", d => getTeamInfo(d).color2);
+			.text(d => this.getTeamInfo(d).abbreviation)
+			.attr("fill", d => this.getTeamInfo(d).color2);
 			
 
 		// svg.append("g")
@@ -237,7 +167,8 @@ class RadialBracket {
 		// 	.attr('class', 'team-name');
 	}
 
-	// Add the counters. Had to pull out some geometry to make this look good
+	// Add the counters. Had to pull out some geometry skills
+	// to make this look good
 	addGamesWonDots() {
 		const { svg, rootNode } = this;
 		const { GAME_COUNTER_RADIUS, SPACE_BETWEEN_DOTS, DOTS_DISTANCE } = this.STYLE;
@@ -308,8 +239,8 @@ class RadialBracket {
 		.attr("r", rootNode.y1-1)
 		
 		winner.append('image')
-			.attr('xlink:href', './trophy.png')
-			.attr('href', './trophy.png')
+			.attr('xlink:href', Trophy)
+			.attr('href', Trophy)
 			.attr("height", imgHeight)
 			.attr("width", imgWidth)
 			.attr("transform", trans(-imgWidth/2,-imgHeight/2))
@@ -317,21 +248,3 @@ class RadialBracket {
 		
 	}
 }
-
-function getTeamInfo() {
-	return d3.json("./scraper/team-info.json")
-		.then(function(info) {
-			// TEAM_INFO = info
-		})
-}
-
-// getTeamInfo()
-// 	.then(function() {
-// 		return d3.json("./scraper/cache/2019.json");
-// 	})
-
-	d3.json("./scraper/cache/2019.json")
-	.then(function(teams) {
-		const bracket = new RadialBracket(teams, 350, '#bracket');
-		bracket.build();
-	})

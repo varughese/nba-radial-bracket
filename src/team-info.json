@@ -17,7 +17,8 @@
 		"location": "Boston",
 		"conference": "EAST",
 		"color1": "#007a33",
-		"color2": "#BA9653"
+		"color2": "#fff",
+		"color3": "#BA9653"
 	},
 	"Brooklyn Nets": {
 		"teamId": 1610612751,
@@ -87,7 +88,8 @@
 		"location": "Detroit",
 		"conference": "EAST",
 		"color1": "#ED174C",
-		"color2": "#006BB6"
+		"color2": "#fff",
+		"color3": "#006BB6"
 	},
 	"Golden State Warriors": {
 		"teamId": 1610612744,
@@ -207,7 +209,8 @@
 		"location": "Oklahoma City",
 		"conference": "WEST",
 		"color1": "#007AC1",
-		"color2": "#ef3b24"
+		"color2": "#fff",
+		"color3": "#ef3b24"
 	},
 	"Orlando Magic": {
 		"teamId": 1610612753,
@@ -227,7 +230,8 @@
 		"location": "Philadelphia",
 		"conference": "EAST",
 		"color1": "#006BB6",
-		"color2": "#ED174C"
+		"color2": "#fff",
+		"color3": "#ED174C"
 	},
 	"Phoenix Suns": {
 		"teamId": 1610612756,

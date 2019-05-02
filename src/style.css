@@ -1,0 +1,53 @@
+.round-arc {
+	stroke: white;
+	stroke-width: 2px;
+}
+.dark-gray {
+	fill: #929496;
+}
+.light-gray {
+	fill: #d1d2d3
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url('./assets/bg_gray.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+#bracket {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+#bracket svg {
+	width: 700px;
+	height: 100%;
+}
+@media (max-width: 767px) {
+	#bracket svg {
+		width: calc(100% - 6em);
+	}
+}
+@media (max-device-width: 767px) {
+	#bracket svg {
+		width: calc(100% - 6em);
+	}
+}
+#playoffs-logo {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 20%;
+}
+.team-name {
+	font-family: 'Arial', sans-serif;
+	font-weight: bolder;
+	font-size: 2em;
+	letter-spacing: -.9px;
+}
+.game-counter-dot {
+	opacity: 0.3;
+}

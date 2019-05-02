@@ -6,6 +6,21 @@
     "request-promise": "^4.2.4"
   },
   "devDependencies": {
-    "webpack": "^4.30.0"
-  }
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --open"
+  },
+  "name": "nba-radial-bracket",
+  "version": "1.0.0",
+  "description": "Visualize the playoffs",
+  "main": "index.js",
+  "author": "Mathew Varughese <mat.varughese3@gmail.com>",
+  "license": "MIT"
 }

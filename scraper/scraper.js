@@ -4,7 +4,7 @@ const fs = require("fs");
 const util = require('util');  
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
-const TEAM_INFO = require("./team-info");
+const TEAM_INFO = require("../src/team-info.json");
 
 async function scrape(url, year) {
 	const CACHE_PATH = `./cache/${year}.html`;
