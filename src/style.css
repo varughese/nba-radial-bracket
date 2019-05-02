@@ -1,3 +1,11 @@
+@font-face {
+	font-family: 'Khula';
+	font-style: normal;
+	font-weight: 700;
+	src: local('Khula Bold'), local('Khula-Bold'), url('./assets/Khula-Bold.ttf') format('woff2');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 .round-arc {
 	stroke: white;
 	stroke-width: 2px;
@@ -16,7 +24,55 @@ body {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	font-family: 'Khula', sans-serif;
+	line-height: 1em;
+	color: white;
 }
+
+#title {
+	position: fixed;
+	top: 30px;
+	left: 30px;
+}
+#title  h2{
+	margin-top: 0;
+	margin-bottom: 3px;
+}
+
+#playoffs-logo {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: 20%;
+	max-width: 210px;
+}
+#credits {
+	font-weight: bold;
+	text-transform: uppercase;
+	position: fixed;
+	bottom: 30px;
+	left: 30px;
+}
+#credits #inspired {
+	font-size: 0.5em;
+}
+#credits a:visited, #credits a {
+	text-decoration: none;
+	color: white;
+}
+#credits #github {
+	font-size: 0.2em;
+}
+#credits #github a {
+	background-image: url('./assets/github.svg');
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* BRACKET STUFF */
 #bracket {
 	width: 100%;
 	display: flex;
@@ -30,17 +86,17 @@ body {
 	#bracket svg {
 		width: calc(100% - 6em);
 	}
+	#credits {
+		display: none;
+	}
 }
 @media (max-device-width: 767px) {
 	#bracket svg {
 		width: calc(100% - 6em);
 	}
-}
-#playoffs-logo {
-	position: fixed;
-	bottom: 30px;
-	right: 30px;
-	width: 20%;
+	#credits {
+		display: none;
+	}
 }
 .team-name {
 	font-family: 'Arial', sans-serif;
