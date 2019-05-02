@@ -90,6 +90,7 @@ body {
 		display: none!important;
 	}
 	#title {
+		margin-top: 5px;
 		font-size: 2em;
 		line-height: 1;
 	}

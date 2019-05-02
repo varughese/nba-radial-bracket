@@ -7,9 +7,11 @@ const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 const TEAM_INFO = require("../src/team-info.json");
 
+const currentYear = new Date().getFullYear()
+
 async function scrape(url, year) {
 	const CACHE_PATH = path.join(__dirname, "cache", `${year}.html`);
-	const cached = fs.existsSync(CACHE_PATH);
+	const cached = year < currentYear ? fs.existsSync(CACHE_PATH) : false;
 	let html;
 	if(cached) {
 		console.log("HTML found in cache", year);
@@ -192,9 +194,4 @@ async function getPlayoffData(year) {
 	}
 }
 
-[...Array(2019-1990+1).keys()].map(i => i+1990).forEach(year => {
-	setTimeout(() => {
-		console.log("Starting", year, "...");
-		getPlayoffData(year);
-	}, 1000);
-});
+getPlayoffData(currentYear);
