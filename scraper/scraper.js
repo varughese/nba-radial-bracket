@@ -5,16 +5,18 @@ const path = require("path");
 const util = require('util');  
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
+const {saveToDb, closeDb} = require('./save-to-db');
 const TEAM_INFO = require("../src/team-info.json");
 
+const PULL_FROM_CACHE = false;
 const currentYear = new Date().getFullYear()
 
 async function scrape(url, year) {
 	const CACHE_PATH = path.join(__dirname, "cache", `${year}.html`);
-	const cached = year < currentYear ? fs.existsSync(CACHE_PATH) : false;
+	const cached = PULL_FROM_CACHE || (year < currentYear ? fs.existsSync(CACHE_PATH) : false);
 	let html;
 	if(cached) {
-		console.log("HTML found in cache", year);
+		console.log("HTML found in cache for", year);
 		html = await readFile(CACHE_PATH);
 	} else {
 		console.log("Making network request for", year);
@@ -177,9 +179,13 @@ function transformRounds(series) {
 }
 
 function upload(tree, year) {
-	const json =  JSON.stringify(tree, null, 2);
-	console.log("Writing JSON for", year);
-	return writeFile(path.join(__dirname, "cache", year+".json"), json);
+	if(process.env.SAVE_FILES) {
+		const json =  JSON.stringify(tree, null, 2);
+		console.log("Writing JSON for", year);
+		return writeFile(path.join(__dirname, "cache", year+".json"), json);
+	} else {
+		return saveToDb(tree, year);
+	}
 }
 
 async function getPlayoffData(year) {
@@ -194,4 +200,10 @@ async function getPlayoffData(year) {
 	}
 }
 
-getPlayoffData(currentYear);
+function scrapeYearsStartingFrom(year) {
+	if(!year) year = currentYear;
+	const promises = [...Array(currentYear-year+1).keys()].map(i => i+year).map(getPlayoffData);
+	Promise.all(promises).then(closeDb);
+}
+
+scrapeYearsStartingFrom(process.argv[2]);
