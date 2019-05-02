@@ -18,9 +18,10 @@ export default class RadialBracket {
 		this.STYLE = {
 			RADIUS: radius,
 			DOM_ID: id,
-			GAME_COUNTER_RADIUS: radius/100,
+			DIAMOND_WIDTH: 3.3 * radius/100,
 			SPACE_BETWEEN_DOTS: 3.2*(radius/100),
-			DOTS_DISTANCE: 10,
+			DOT_RADIUS: radius/90,
+			DOTS_DISTANCE: 12,
 			TEXT_OFFSET: 25
 		};
 		
@@ -144,34 +145,13 @@ export default class RadialBracket {
 			.attr("xlink:href", d => `#${d.data.name}${d.height}${(Number(d.x0+d.x1)*1000).toFixed(0)}`)
 			.text(d => this.getTeamInfo(d).abbreviation)
 			.attr("fill", d => this.getTeamInfo(d).color2);
-			
-
-		// svg.append("g")
-		// 	.attr("pointer-events", "none")
-		// 	.attr("text-anchor", "middle")
-		// 	.selectAll("text")
-		// 	.data(rootNode.descendants())
-		// 	.enter().append("text")
-		// 	.attr("transform", function(d) {
-		// 		// This took some noodling out
-		// 		// First you rotate it, then you can adjust its y
-		// 		// You think in polar coordinates
-		// 		// then you rotate it again
-		// 		const rotation = toDegrees((d.x0 + d.x1) / 2) - 90;
-		// 		const postTextRotation = (0 <= rotation && rotation <= 180) ? 270 : 80;
-		// 		const y = (d.y0 + d.y1) / 2;
-		// 		return `rotate(${rotation}) translate(${y},0) rotate(${postTextRotation})`;
-		// 	})
-		// 	.attr("dy", "0.35em")
-		// 	.text(d => d.data.name)
-		// 	.attr('class', 'team-name');
 	}
 
 	// Add the counters. Had to pull out some geometry skills
 	// to make this look good
 	addGamesWonDots() {
 		const { svg, rootNode } = this;
-		const { GAME_COUNTER_RADIUS, SPACE_BETWEEN_DOTS, DOTS_DISTANCE } = this.STYLE;
+		const { DOT_RADIUS, SPACE_BETWEEN_DOTS, DOTS_DISTANCE } = this.STYLE;
 		const init_offset = Math.PI/40;
 		const offset_list = [-1.5, -.5, .5, 1.5];
 		svg.append("g").selectAll('g')
@@ -179,13 +159,11 @@ export default class RadialBracket {
 			.enter()
 			.append('g')
 			.selectAll('circle')
-			.data(d => {
-				return [d,d,d,d]
-			})
+			.data(d => [d,d,d,d])
 			.enter()
 			.append("circle")
 			.attr("class", "game-counter-dot")
-			.attr("r", GAME_COUNTER_RADIUS)
+			.attr("r", DOT_RADIUS)
 			.attr("transform", (d, i) => {
 				// Lol had to do math to make the dots the same
 				// distance away at each distance from the center
@@ -197,13 +175,15 @@ export default class RadialBracket {
 				offset *= offset_list[i];
 				return `rotate(${rotation}) rotate(${toDegrees(offset)}) translate(${y}, 0)`
 			})
-			.attr("fill", "#fff")
+			.style("opacity", (d, i) => {
+				const points = d.data.points || 0;
+				return (i+1 <= points) ? 1 : 0.3;
+			})
 	}
 
 	addGameDiamonds() {
 		const { svg, rootNode } = this;
-		const { GAME_COUNTER_RADIUS } = this.STYLE;
-		const DIAMOND_WIDTH = GAME_COUNTER_RADIUS*3;
+		const { DIAMOND_WIDTH } = this.STYLE;
 		const HALF_DIAMOND_WIDTH = DIAMOND_WIDTH/2;
 		const winnerDiamonds = [{x0: 0, y0: 70, y1: 70}, {x0: Math.PI, y0: 70, y1: 70}];
 		const diamondData = rootNode.descendants().filter((team, i) => {

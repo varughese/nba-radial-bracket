@@ -50,4 +50,5 @@ body {
 }
 .game-counter-dot {
 	opacity: 0.3;
+	fill: #fff;
 }
