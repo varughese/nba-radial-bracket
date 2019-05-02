@@ -89,6 +89,9 @@ body {
 	#credits {
 		display: none;
 	}
+	#title {
+		font-size: 4em;
+	}
 }
 @media (max-device-width: 767px) {
 	#bracket svg {
@@ -96,6 +99,9 @@ body {
 	}
 	#credits {
 		display: none;
+	}
+	#title {
+		font-size: 4em;
 	}
 }
 .team-name {
