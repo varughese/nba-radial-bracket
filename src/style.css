@@ -72,6 +72,43 @@ body {
     margin-bottom: 10px;
 }
 
+#controls {
+	position: fixed;
+	bottom: 60px;
+}
+#controls #yearleft {
+	position: fixed;
+    top: 50%;
+    left: 30px;
+}
+#controls #yearright {
+	position: fixed;
+    top: 50%;
+    right: 30px;
+}
+
+#controls button {
+	display: inline-block;
+    font-weight: 800;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+	user-select: none;
+	background: #d1d2d3;
+	border: 2px solid white;
+	box-shadow: 0px 3px 8px #0000004a;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s 
+}
+#controls button:hover {
+	cursor: pointer;
+	background: #929496;
+	color: white;
+}
+
 /* BRACKET STUFF */
 #bracket {
 	width: 100%;
@@ -82,18 +119,50 @@ body {
 	width: 700px;
 	height: 100%;
 }
+@media (max-width: 1024px) {
+	#controls {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+	#controls #yearleft, #controls #yearright {
+		position: relative;
+	}
+
+	#title {
+		top: 10px;
+		left: 10px;
+	}
+
+	#credits {
+		left: 10px;
+		bottom: 10px;
+		display: flex;
+	}
+
+	#github {
+		margin-right: 8px;
+	}
+
+	#playoffs-logo {
+		max-width: 100px;
+		right: 10px;
+		bottom: 10px;
+	}
+}
 @media (max-width: 767px), (max-device-width: 767px) {
 	#bracket svg {
-		width: calc(100% - 6em);
+		width: calc(100% - 2em);
 	}
 	.hide-when-small {
 		display: none!important;
 	}
 	#title {
 		margin-top: 5px;
-		font-size: 2em;
+		font-size: 1.5em;
 		line-height: 1;
 	}
+
 }
 .team-name {
 	font-family: 'Arial', sans-serif;
@@ -108,4 +177,11 @@ body {
 .winner-diamond {
 	stroke: white;
 	stroke-width: 2px;
+}
+
+.hide {
+	display: none!important;
+}
+.invisible {
+	visibility: hidden!important;
 }

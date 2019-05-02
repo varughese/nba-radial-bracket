@@ -1,3 +1,4 @@
+import './reset.css';
 import './style.css';
 import TEAM_INFO from './team-info.json';
 import RadialBracket from './radial-bracket';
@@ -30,22 +31,47 @@ function loadBracketForYear(year) {
 	const cachedTree = localStorage.getItem(year);
 	const lastFetchedTime = Number(localStorage.getItem("last_fetched"));
 	const timeSinceFetch = new Date().getTime() - lastFetchedTime;
-	const shouldGetFromCache = cachedTree && year === currentYear && timeSinceFetch < RECHECK_TIME;
+	const yearElapsedCheck = (year !== currentYear || (year === currentYear && timeSinceFetch < RECHECK_TIME))
+	const shouldGetFromCache = cachedTree && (cachedTree !== "null") && yearElapsedCheck;
 	if(shouldGetFromCache) {
 		const teams = JSON.parse(cachedTree);
-		bracket.config({teams});
-		bracket.render();
+		bracket.config({teams}).render();
 	} else {
 		db.ref("years").child(year).once('value').then(snapshot => {
 			const teams = snapshot.val();
+			if(!teams) return;
 			localStorage.setItem(year, JSON.stringify(teams));
 			localStorage.setItem("last_fetched", new Date().getTime());
-			bracket.config({teams});
-			bracket.render();
+			bracket.config({teams}).render();
 		})
 	}
 }
 
 loadBracketForYear(currentYear);
+
+let yearDisplayed = currentYear;
+const $yearDisplayedTop = document.getElementById("year");
+const $prevYearText = document.getElementById("prev-year-text");
+const $nextYearText = document.getElementById("next-year-text");
+const $prevBtn = document.getElementById("yearleft");
+const $nextBtn = document.getElementById("yearright");
+window.changeYear = function(change) {
+	if(yearDisplayed + change < 1990 || yearDisplayed + change > currentYear) return;
+	yearDisplayed += change;
+	loadBracketForYear(yearDisplayed);
+	$yearDisplayedTop.textContent = yearDisplayed;
+	$prevYearText.textContent = yearDisplayed - 1;
+	$nextYearText.textContent = yearDisplayed + 1;
+	if(yearDisplayed === currentYear) {
+		$nextBtn.classList.add("invisible");
+	} else {
+		$nextBtn.classList.remove("invisible");
+	}
+	if(yearDisplayed === 1990) {
+		$prevBtn.classList.add("invisible");
+	} else {
+		$prevBtn.classList.remove("invisible");
+	}
+}
 
 

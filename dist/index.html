@@ -2,6 +2,10 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
 "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">		
+	</head>
 	<body>
 		<div id="title">
 			<h2 id="inspired"><span id="year">2019</span> NBA Playoffs</h2>
@@ -10,14 +14,20 @@
 		<div id="bracket">
 			<span>Loading ...</span>
 		</div>
+		<div id="controls">
+			<button id="yearleft" onclick="changeYear(-1)"><span>&larr;&nbsp;</span><span id="prev-year-text">2018</span></button>
+			<button class="invisible" id="yearright" onclick="changeYear(1)"><span id="next-year-text">2020</span><span>&nbsp;&rarr;</span></button>
+		</div>
 		<img id="playoffs-logo"/>
 		<div id="credits">
 			<div id="github" class="hide-when-small">
 				<a target="_blank" href="https://www.github.com/varughese">
 				</a>
 			</div>
-			<div id="inspired">Inspired By</div>
-			<div><a target="_blank" href="https://www.reddit.com/r/nba/comments/bgckp4/updated_2019_playoffs_radial_bracket_celtics/">@MYKCRAWFORD</a></div>
+			<div>
+				<div id="inspired">Inspired By</div>
+				<div><a target="_blank" href="https://www.reddit.com/r/nba/comments/bgckp4/updated_2019_playoffs_radial_bracket_celtics/">@MYKCRAWFORD</a></div>
+			</div>
 		</div>
 		<script src="./bundle.js"></script>
 	</body>
