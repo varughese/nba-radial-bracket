@@ -60,24 +60,29 @@ function getRows($) {
 
 function transform(series) {
 	transformRounds(series);
-	series.sort((a, b) => b.round - a.round);
-	const tree = convertToTree(series);
-	// console.log(series);
-	console.log(JSON.stringify(tree));
+	series.sort(sortMatches);
+	return convertToTree(series);
 }
 
+function sortMatches(matchA, matchB) {
+	const confOrder = { "EAST": 0, "WEST": 1, "BOTH": -1 }
+	const aConf = confOrder[matchA.conference];
+	const bConf = confOrder[matchB.conference];
+	return matchB.round - matchA.round || aConf - bConf;
+}
 
 function convertToTree(series) {
-	series = padSeriesWithFillerGames(series);
-	const root = { children: [] };
-	const TOTAL_GAMES = 15;
-	const teamGameMap = {};
+	const { mostRecentGame, padded } = padSeriesWithFillerGames(series);;
+	series = padded;
+	const wonGames = {};
 	series.forEach((match, i) => {
-		if(i == 0) return;
-		teamGameMap[match.winning] = teamGameMap[match.winning] || [];
-		teamGameMap[match.winning].push(i);
+		if(i <= mostRecentGame || match.filler) return;
+		wonGames[match.winning] = wonGames[match.winning] || [];
+		wonGames[match.winning].push(i);
 	});
 	let tree = convertToTreeRecursive(series[0]);
+
+	// this looks more complicated then it is
 	function convertToTreeRecursive(match) {
 		let node = { children: [] };
 		if(match.round == 0) {
@@ -88,14 +93,26 @@ function convertToTree(series) {
 				]
 			}
 		} else {
-			const topTeamNextMatch = teamGameMap[match.winning].shift();
-			const bottomTeamNextMatch = teamGameMap[match.losing].shift();
+			let topTeamNextMatch, bottomTeamNextMatch;
+			if (match.filler) {
+				topTeamNextMatch = match.next[0];
+				bottomTeamNextMatch = match.next[1];
+			} else {
+				topTeamNextMatch = wonGames[match.winning].shift();
+				bottomTeamNextMatch = wonGames[match.losing].shift();	
+			}
 			node.children[0] = convertToTreeRecursive(series[topTeamNextMatch]);
 			node.children[1] = convertToTreeRecursive(series[bottomTeamNextMatch]);
-			node.children[0].points = match.winningPoints;
-			node.children[1].points = match.losingPoints;
+			if(match.filler) {
+				node.children[0] = { children: node.children[0].children };
+				node.children[1] = { children: node.children[1].children };
+			} else {
+				node.children[0].points = match.winningPoints;
+				node.children[1].points = match.losingPoints;
+			}
 			if(match.conference === "BOTH") {
-				// EAST goes on top so it is on right side
+				// EAST needs to be first child so it shows up as
+				// on the right side in the d3 visualization
 				if(node.children[0].conference === "WEST") {
 					const temp = node.children[0];
 					node.children[0] = node.children[1];
@@ -103,7 +120,9 @@ function convertToTree(series) {
 				}
 			}
 		}
-		Object.assign(node, {name: match.winning, conference: match.conference });
+		if(!match.filler) {
+			Object.assign(node, {name: match.winning, conference: match.conference });
+		}
 		return node;
 	}
 	
@@ -111,14 +130,18 @@ function convertToTree(series) {
 }
 
 
-
 function padSeriesWithFillerGames(series) {
 	const TOTAL_GAMES = 15;
-	const topad = TOTAL_GAMES - series.length;
-	const filler = new Array(topad).fill({ winning: "" });
-	
-	series = filler.concat(series);
-	return series;
+	const padlen = TOTAL_GAMES - series.length;
+	const fillers = new Array(padlen).fill(1)
+		.map((_m, i) => ({ next: [2*i + 1,  2*i + 2], filler: true }));
+	const padded = fillers.concat(series);
+	// TODO Need to check if someone actually won or not here
+	const mostRecentGame = 2*(padlen-1)+2;
+	return {
+		padded,
+		mostRecentGame
+	};
 }
 
 function transformRounds(series) {
@@ -144,12 +167,24 @@ function transformRounds(series) {
 	return series;
 }
 
-async function getPlayoffData(year) {
-	const url = `https://www.basketball-reference.com/playoffs/NBA_${year}.html`;
-	const $ = await scrape(url, year);
-	const data = parse($);
-	transform(data);
+function upload(tree, year) {
+	const json =  JSON.stringify(tree, null, 2);
+	console.log(json);
+	
+	return writeFile("cache/"+year+".json", json);
 }
 
-getPlayoffData(2017);
+async function getPlayoffData(year) {
+	const url = `https://www.basketball-reference.com/playoffs/NBA_${year}.html`;
+	try {
+		const $ = await scrape(url, year);
+		const data = parse($);
+		const tree = transform(data);
+		upload(tree, year);
+	} catch (e) {
+		console.error(e);
+	}
+}
+
+getPlayoffData(2019);
 // transform();
