@@ -1,18 +1,21 @@
 const cheerio = require("cheerio");
 const request = require("request-promise");
 const fs = require("fs");
+const path = require("path");
 const util = require('util');  
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
 const TEAM_INFO = require("../src/team-info.json");
 
 async function scrape(url, year) {
-	const CACHE_PATH = `./cache/${year}.html`;
+	const CACHE_PATH = path.join(__dirname, "cache", `${year}.html`);
 	const cached = fs.existsSync(CACHE_PATH);
 	let html;
 	if(cached) {
+		console.log("HTML found in cache", year);
 		html = await readFile(CACHE_PATH);
 	} else {
+		console.log("Making network request for", year);
 		html = await request(url);
 		writeFile(CACHE_PATH, html);
 	}
@@ -104,12 +107,14 @@ function convertToTree(series) {
 			node.children[0] = convertToTreeRecursive(series[topTeamNextMatch]);
 			node.children[1] = convertToTreeRecursive(series[bottomTeamNextMatch]);
 			if(match.filler) {
-				node.children[0] = { children: node.children[0].children };
-				node.children[1] = { children: node.children[1].children };
+				node.children[0] = { children: node.children[0].children, points: 0 };
+				node.children[1] = { children: node.children[1].children, points: 0 };
 			} else {
 				node.children[0].points = match.winningPoints;
 				node.children[1].points = match.losingPoints;
 			}
+			
+			// Probbaly not needed anymore, since the array is sorted:
 			if(match.conference === "BOTH") {
 				// EAST needs to be first child so it shows up as
 				// on the right side in the d3 visualization
@@ -158,7 +163,9 @@ function transformRounds(series) {
 		match.round = roundRank;
 		let conference = "BOTH"; 
 		if(rounds[roundRank] !== "FINALS") {
-			conference = TEAM_INFO[match.winning].conference;
+			const teamInfo = TEAM_INFO[match.winning];
+			if(!teamInfo) console.error("No team info for", match.winning);
+			conference = teamInfo.conference;
 		}
 		match.conference = conference;
 		return match;
@@ -169,9 +176,8 @@ function transformRounds(series) {
 
 function upload(tree, year) {
 	const json =  JSON.stringify(tree, null, 2);
-	console.log(json);
-	
-	return writeFile("cache/"+year+".json", json);
+	console.log("Writing JSON for", year);
+	return writeFile(path.join(__dirname, "cache", year+".json"), json);
 }
 
 async function getPlayoffData(year) {
@@ -186,5 +192,9 @@ async function getPlayoffData(year) {
 	}
 }
 
-getPlayoffData(2019);
-// transform();
+[...Array(2019-1990+1).keys()].map(i => i+1990).forEach(year => {
+	setTimeout(() => {
+		console.log("Starting", year, "...");
+		getPlayoffData(year);
+	}, 1000);
+});

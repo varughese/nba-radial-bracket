@@ -208,15 +208,19 @@ export default class RadialBracket {
 
 	addWinner() {
 		const { svg, rootNode } = this;
-		const innerDiameter = 2*rootNode.y1;
+		const innerRadius = rootNode.y1;
+		const innerDiameter = 2*innerRadius;
 		const imgHeight = innerDiameter-25;
 		const ratioOfImage = (256/470);
 		const imgWidth = ratioOfImage * imgHeight;
 		const winner = svg.append('g').attr("id", "trophys")
-		
-		winner.append("circle")
-		.attr("class", "light-gray")
-		.attr("r", rootNode.y1-1)
+		const winnerExists = rootNode.data.name;
+
+		if(!winnerExists) {
+			winner.append("circle")
+			.attr("class", "light-gray")
+			.attr("r", rootNode.y1-1)
+		}
 		
 		winner.append('image')
 			.attr('xlink:href', Trophy)
@@ -225,6 +229,21 @@ export default class RadialBracket {
 			.attr("width", imgWidth)
 			.attr("transform", trans(-imgWidth/2,-imgHeight/2))
 
-		
+		if(winnerExists) {
+			const diamondBg = d3.color(this.getTeamInfo(rootNode).color1);
+			diamondBg.opacity = 0.5;
+			winner.append("rect")
+				.attr("width", innerRadius)
+				.attr("height", innerRadius)
+				.attr("fill", diamondBg)
+				.attr("class", "winner-diamond")
+				.attr("transform", d => `rotate(45) translate(-${innerRadius/2}, -${innerRadius/2})`)
+			winner.append("text")
+				.text(this.getTeamInfo(rootNode).abbreviation)
+				.attr("text-anchor", "middle")
+				.attr("dy", "0.35em")
+				.attr("fill", d => this.getTeamInfo(rootNode).color2)
+				.attr("class", "team-name");
+		}
 	}
 }

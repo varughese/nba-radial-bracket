@@ -261,7 +261,8 @@
 		"location": "Sacramento",
 		"conference": "WEST",
 		"color1": "#592d81",
-		"color2": "#63727a"
+		"color2": "#fff",
+		"color3": "#63727a"
 	},
 	"San Antonio Spurs": {
 		"teamId": 1610612759,
@@ -302,5 +303,55 @@
 		"conference": "EAST",
 		"color1": "#002b5c",
 		"color2": "#e31937"
+	},
+	"Seattle SuperSonics": {
+		"abbreviation": "SEA",
+		"conference": "WEST",
+		"old": true,
+		"color1": "#173F35",
+		"color2": "#9E2A2F"
+	},
+	"New Jersey Nets": {
+		"teamId": 1610612751,
+		"abbreviation": "NJN",
+		"old": true,
+		"teamName": "(Brooklyn) Nets",
+		"simpleName": "Nets",
+		"location": "Brooklyn",
+		"conference": "EAST",
+		"color1": "#000",
+		"color2": "#fff"
+	},
+	"New Orleans Hornets": {
+		"teamId": 1610612766,
+		"old": true,
+		"abbreviation": "NOH",
+		"teamName": "New Orleans Hornets",
+		"simpleName": "Hornets",
+		"location": "Charlotte",
+		"conference": "EAST",
+		"color1": "#1D1160",
+		"color2": "#00788c"		
+	},
+	"Washington Bullets": {
+		"teamId": 1610612764,
+		"old": true,
+		"abbreviation": "WAS",
+		"teamName": "Washington Wizards",
+		"simpleName": "Wizards",
+		"location": "Washington",
+		"conference": "EAST",
+		"color1": "#002b5c",
+		"color2": "#e31937"
+	},
+	"Charlotte Bobcats": {
+		"old": true,
+		"abbreviation": "CHB",
+		"teamName": "New Orleans Hornets",
+		"simpleName": "Hornets",
+		"location": "Charlotte",
+		"conference": "EAST",
+		"color1": "#1D1160",
+		"color2": "#00788c"		
 	}
 }

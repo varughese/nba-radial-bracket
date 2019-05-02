@@ -34,7 +34,8 @@
               "conference": "EAST",
               "points": 1
             }
-          ]
+          ],
+          "points": 0
         },
         {
           "children": [
@@ -68,9 +69,11 @@
               "conference": "EAST",
               "points": 1
             }
-          ]
+          ],
+          "points": 0
         }
-      ]
+      ],
+      "points": 0
     },
     {
       "children": [
@@ -106,7 +109,8 @@
               "conference": "WEST",
               "points": 0
             }
-          ]
+          ],
+          "points": 0
         },
         {
           "children": [
@@ -140,9 +144,11 @@
               "conference": "WEST",
               "points": 0
             }
-          ]
+          ],
+          "points": 0
         }
-      ]
+      ],
+      "points": 0
     }
   ]
 }

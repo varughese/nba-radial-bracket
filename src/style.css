@@ -82,26 +82,16 @@ body {
 	width: 700px;
 	height: 100%;
 }
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-device-width: 767px) {
 	#bracket svg {
 		width: calc(100% - 6em);
 	}
-	#credits {
-		display: none;
+	.hide-when-small {
+		display: none!important;
 	}
 	#title {
-		font-size: 4em;
-	}
-}
-@media (max-device-width: 767px) {
-	#bracket svg {
-		width: calc(100% - 6em);
-	}
-	#credits {
-		display: none;
-	}
-	#title {
-		font-size: 4em;
+		font-size: 2em;
+		line-height: 1;
 	}
 }
 .team-name {
@@ -113,4 +103,8 @@ body {
 .game-counter-dot {
 	opacity: 0.3;
 	fill: #fff;
+}
+.winner-diamond {
+	stroke: white;
+	stroke-width: 2px;
 }

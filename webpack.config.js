@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-	mode: 'production',
+	mode: 'development',
 	entry: './src/index.js',
 	output: {
 		filename: 'bundle.js',
@@ -21,7 +21,10 @@ module.exports = {
 			{
 				test: /\.(png|svg|jpg|gif)$/,
 				loader: 'image-webpack-loader',
-				enforce: 'pre'
+				enforce: 'pre',
+				options: {
+					bypassOnDebug: true
+				}
 			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,
