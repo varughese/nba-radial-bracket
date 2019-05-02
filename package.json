@@ -3,6 +3,7 @@
     "cheerio": "^1.0.0-rc.3",
     "d3": "^5.9.2",
     "dotenv": "^7.0.0",
+    "firebase": "^5.11.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
   },
