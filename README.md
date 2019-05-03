@@ -1,16 +1,18 @@
 # NBA Radial Bracket
-> In heavy dev
+![](https://i.imgur.com/Gpr3CET.jpg)
 
-## Documentation
-Here is in order the stuff I experimented until I figured out to be able to create this:
+# *[View Here](http://matvarughese.me/nba-radial-bracket/)*
 
-## d3 Partition Layout
+## What is this
+After seeing [this Reddit post](https://www.reddit.com/r/nba/comments/bgckp4/updated_2019_playoffs_radial_bracket_celtics/) I thought it would be a short fun project to create it in Javascript. The advantage of this would be it could live update and also show playoff history for each.
 
-## Arcs
+## High Level Documentation
+The front end uses a d3 partition layout to create the radial bracket. The back end scrapes a website, Basketball Reference, once a day and uploads data to Firebase. For more specific documentation, click the links or view the docs folder.
 
-## Text Paths
+### Front End
+Front end is a `d3` partition layout. It was definitely the harder part. I found [this](https://llimllib.github.io/roundbracket/) online, but it used a old version of d3 and was kind of confusing. However it pushed me in the right direction.
 
-### Rotations
-The middle is (0,0). Rotate 90 and the translating y by 100 will make it to the left of the center.
+### Back End
+The flow of the backend is `Scrape` → `Parse` →`Transform`. Transforming was the hardest part, but not that bad.
 
-So see picture for more detail.
+Most importantly, trust the process. The Sixers are gonna be in the center of one of these brackets soon.
