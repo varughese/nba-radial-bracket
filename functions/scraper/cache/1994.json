@@ -1,0 +1,168 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "New York Knicks",
+                  "points": 3
+                },
+                {
+                  "name": "New Jersey Nets",
+                  "points": 1
+                }
+              ],
+              "name": "New York Knicks",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Chicago Bulls",
+                  "points": 3
+                },
+                {
+                  "name": "Cleveland Cavaliers",
+                  "points": 0
+                }
+              ],
+              "name": "Chicago Bulls",
+              "conference": "EAST",
+              "points": 3
+            }
+          ],
+          "name": "New York Knicks",
+          "conference": "EAST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Indiana Pacers",
+                  "points": 3
+                },
+                {
+                  "name": "Orlando Magic",
+                  "points": 0
+                }
+              ],
+              "name": "Indiana Pacers",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Atlanta Hawks",
+                  "points": 3
+                },
+                {
+                  "name": "Miami Heat",
+                  "points": 2
+                }
+              ],
+              "name": "Atlanta Hawks",
+              "conference": "EAST",
+              "points": 2
+            }
+          ],
+          "name": "Indiana Pacers",
+          "conference": "EAST",
+          "points": 3
+        }
+      ],
+      "name": "New York Knicks",
+      "conference": "EAST",
+      "points": 3
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Houston Rockets",
+                  "points": 3
+                },
+                {
+                  "name": "Portland Trail Blazers",
+                  "points": 1
+                }
+              ],
+              "name": "Houston Rockets",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Phoenix Suns",
+                  "points": 3
+                },
+                {
+                  "name": "Golden State Warriors",
+                  "points": 0
+                }
+              ],
+              "name": "Phoenix Suns",
+              "conference": "WEST",
+              "points": 3
+            }
+          ],
+          "name": "Houston Rockets",
+          "conference": "WEST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Utah Jazz",
+                  "points": 3
+                },
+                {
+                  "name": "San Antonio Spurs",
+                  "points": 1
+                }
+              ],
+              "name": "Utah Jazz",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Denver Nuggets",
+                  "points": 3
+                },
+                {
+                  "name": "Seattle SuperSonics",
+                  "points": 2
+                }
+              ],
+              "name": "Denver Nuggets",
+              "conference": "WEST",
+              "points": 3
+            }
+          ],
+          "name": "Utah Jazz",
+          "conference": "WEST",
+          "points": 1
+        }
+      ],
+      "name": "Houston Rockets",
+      "conference": "WEST",
+      "points": 4
+    }
+  ],
+  "name": "Houston Rockets",
+  "conference": "BOTH"
+}

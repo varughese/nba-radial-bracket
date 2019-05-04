@@ -1,6 +1,6 @@
 import './reset.css';
 import './style.css';
-import TEAM_INFO from './team-info.json';
+import TEAM_INFO from '../functions/scraper/team-info.json';
 import RadialBracket from './radial-bracket';
 import NbaPlayoffsLogo from './assets/nba-playoffs.svg';
 import * as firebase from 'firebase/app';

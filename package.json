@@ -24,7 +24,7 @@
     "deploy": "webpack --mode=production && git commit -am \"build and deploy\" && git subtree push --prefix dist origin gh-pages",
     "build": "webpack",
     "start": "webpack-dev-server --open",
-    "scrape": "node scraper/scraper.js"
+    "scrape": "node functions/scraper/scraper-cli.js"
   },
   "name": "nba-radial-bracket",
   "version": "1.0.0",

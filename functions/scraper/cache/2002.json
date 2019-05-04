@@ -1,0 +1,168 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "New Jersey Nets",
+                  "points": 3
+                },
+                {
+                  "name": "Indiana Pacers",
+                  "points": 2
+                }
+              ],
+              "name": "New Jersey Nets",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Charlotte Hornets",
+                  "points": 3
+                },
+                {
+                  "name": "Orlando Magic",
+                  "points": 1
+                }
+              ],
+              "name": "Charlotte Hornets",
+              "conference": "EAST",
+              "points": 1
+            }
+          ],
+          "name": "New Jersey Nets",
+          "conference": "EAST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Boston Celtics",
+                  "points": 3
+                },
+                {
+                  "name": "Philadelphia 76ers",
+                  "points": 2
+                }
+              ],
+              "name": "Boston Celtics",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Detroit Pistons",
+                  "points": 3
+                },
+                {
+                  "name": "Toronto Raptors",
+                  "points": 2
+                }
+              ],
+              "name": "Detroit Pistons",
+              "conference": "EAST",
+              "points": 1
+            }
+          ],
+          "name": "Boston Celtics",
+          "conference": "EAST",
+          "points": 2
+        }
+      ],
+      "name": "New Jersey Nets",
+      "conference": "EAST",
+      "points": 0
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Los Angeles Lakers",
+                  "points": 3
+                },
+                {
+                  "name": "Portland Trail Blazers",
+                  "points": 0
+                }
+              ],
+              "name": "Los Angeles Lakers",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "San Antonio Spurs",
+                  "points": 3
+                },
+                {
+                  "name": "Seattle SuperSonics",
+                  "points": 2
+                }
+              ],
+              "name": "San Antonio Spurs",
+              "conference": "WEST",
+              "points": 1
+            }
+          ],
+          "name": "Los Angeles Lakers",
+          "conference": "WEST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Sacramento Kings",
+                  "points": 3
+                },
+                {
+                  "name": "Utah Jazz",
+                  "points": 1
+                }
+              ],
+              "name": "Sacramento Kings",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Dallas Mavericks",
+                  "points": 3
+                },
+                {
+                  "name": "Minnesota Timberwolves",
+                  "points": 0
+                }
+              ],
+              "name": "Dallas Mavericks",
+              "conference": "WEST",
+              "points": 1
+            }
+          ],
+          "name": "Sacramento Kings",
+          "conference": "WEST",
+          "points": 3
+        }
+      ],
+      "name": "Los Angeles Lakers",
+      "conference": "WEST",
+      "points": 4
+    }
+  ],
+  "name": "Los Angeles Lakers",
+  "conference": "BOTH"
+}

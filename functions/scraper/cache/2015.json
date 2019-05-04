@@ -1,0 +1,168 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Cleveland Cavaliers",
+                  "points": 4
+                },
+                {
+                  "name": "Boston Celtics",
+                  "points": 0
+                }
+              ],
+              "name": "Cleveland Cavaliers",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Chicago Bulls",
+                  "points": 4
+                },
+                {
+                  "name": "Milwaukee Bucks",
+                  "points": 2
+                }
+              ],
+              "name": "Chicago Bulls",
+              "conference": "EAST",
+              "points": 2
+            }
+          ],
+          "name": "Cleveland Cavaliers",
+          "conference": "EAST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Atlanta Hawks",
+                  "points": 4
+                },
+                {
+                  "name": "Brooklyn Nets",
+                  "points": 2
+                }
+              ],
+              "name": "Atlanta Hawks",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Washington Wizards",
+                  "points": 4
+                },
+                {
+                  "name": "Toronto Raptors",
+                  "points": 0
+                }
+              ],
+              "name": "Washington Wizards",
+              "conference": "EAST",
+              "points": 2
+            }
+          ],
+          "name": "Atlanta Hawks",
+          "conference": "EAST",
+          "points": 0
+        }
+      ],
+      "name": "Cleveland Cavaliers",
+      "conference": "EAST",
+      "points": 2
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Golden State Warriors",
+                  "points": 4
+                },
+                {
+                  "name": "New Orleans Pelicans",
+                  "points": 0
+                }
+              ],
+              "name": "Golden State Warriors",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Memphis Grizzlies",
+                  "points": 4
+                },
+                {
+                  "name": "Portland Trail Blazers",
+                  "points": 1
+                }
+              ],
+              "name": "Memphis Grizzlies",
+              "conference": "WEST",
+              "points": 2
+            }
+          ],
+          "name": "Golden State Warriors",
+          "conference": "WEST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Houston Rockets",
+                  "points": 4
+                },
+                {
+                  "name": "Dallas Mavericks",
+                  "points": 1
+                }
+              ],
+              "name": "Houston Rockets",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Los Angeles Clippers",
+                  "points": 4
+                },
+                {
+                  "name": "San Antonio Spurs",
+                  "points": 3
+                }
+              ],
+              "name": "Los Angeles Clippers",
+              "conference": "WEST",
+              "points": 3
+            }
+          ],
+          "name": "Houston Rockets",
+          "conference": "WEST",
+          "points": 1
+        }
+      ],
+      "name": "Golden State Warriors",
+      "conference": "WEST",
+      "points": 4
+    }
+  ],
+  "name": "Golden State Warriors",
+  "conference": "BOTH"
+}

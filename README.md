@@ -4,7 +4,7 @@
 # *[View Here](http://matvarughese.me/nba-radial-bracket/)*
 
 ## What is this
-After seeing [this Reddit post](https://www.reddit.com/r/nba/comments/bgckp4/updated_2019_playoffs_radial_bracket_celtics/) I thought it would be a short fun project to create it in Javascript. The advantage of this would be it could live update and also show playoff history for each.
+After seeing [this Reddit post](https://www.reddit.com/r/nba/comments/bgckp4/updated_2019_playoffs_radial_bracket_celtics/) I thought it would be a short fun project to create it in Javascript. The advantage of this would be it could live update and also show each year's playoff history.
 
 ## High Level Documentation
 The front end uses a d3 partition layout to create the radial bracket. The back end scrapes a website, Basketball Reference, once a day and uploads data to Firebase. For more specific documentation, click the links or view the docs folder.

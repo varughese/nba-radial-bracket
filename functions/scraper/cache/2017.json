@@ -1,0 +1,168 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Cleveland Cavaliers",
+                  "points": 4
+                },
+                {
+                  "name": "Indiana Pacers",
+                  "points": 0
+                }
+              ],
+              "name": "Cleveland Cavaliers",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Toronto Raptors",
+                  "points": 4
+                },
+                {
+                  "name": "Milwaukee Bucks",
+                  "points": 2
+                }
+              ],
+              "name": "Toronto Raptors",
+              "conference": "EAST",
+              "points": 0
+            }
+          ],
+          "name": "Cleveland Cavaliers",
+          "conference": "EAST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Boston Celtics",
+                  "points": 4
+                },
+                {
+                  "name": "Chicago Bulls",
+                  "points": 2
+                }
+              ],
+              "name": "Boston Celtics",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Washington Wizards",
+                  "points": 4
+                },
+                {
+                  "name": "Atlanta Hawks",
+                  "points": 2
+                }
+              ],
+              "name": "Washington Wizards",
+              "conference": "EAST",
+              "points": 3
+            }
+          ],
+          "name": "Boston Celtics",
+          "conference": "EAST",
+          "points": 1
+        }
+      ],
+      "name": "Cleveland Cavaliers",
+      "conference": "EAST",
+      "points": 1
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Golden State Warriors",
+                  "points": 4
+                },
+                {
+                  "name": "Portland Trail Blazers",
+                  "points": 0
+                }
+              ],
+              "name": "Golden State Warriors",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Utah Jazz",
+                  "points": 4
+                },
+                {
+                  "name": "Los Angeles Clippers",
+                  "points": 3
+                }
+              ],
+              "name": "Utah Jazz",
+              "conference": "WEST",
+              "points": 0
+            }
+          ],
+          "name": "Golden State Warriors",
+          "conference": "WEST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "San Antonio Spurs",
+                  "points": 4
+                },
+                {
+                  "name": "Memphis Grizzlies",
+                  "points": 2
+                }
+              ],
+              "name": "San Antonio Spurs",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Houston Rockets",
+                  "points": 4
+                },
+                {
+                  "name": "Oklahoma City Thunder",
+                  "points": 1
+                }
+              ],
+              "name": "Houston Rockets",
+              "conference": "WEST",
+              "points": 2
+            }
+          ],
+          "name": "San Antonio Spurs",
+          "conference": "WEST",
+          "points": 0
+        }
+      ],
+      "name": "Golden State Warriors",
+      "conference": "WEST",
+      "points": 4
+    }
+  ],
+  "name": "Golden State Warriors",
+  "conference": "BOTH"
+}

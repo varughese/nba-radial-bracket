@@ -1,0 +1,168 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Chicago Bulls",
+                  "points": 3
+                },
+                {
+                  "name": "Miami Heat",
+                  "points": 0
+                }
+              ],
+              "name": "Chicago Bulls",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "New York Knicks",
+                  "points": 3
+                },
+                {
+                  "name": "Detroit Pistons",
+                  "points": 2
+                }
+              ],
+              "name": "New York Knicks",
+              "conference": "EAST",
+              "points": 3
+            }
+          ],
+          "name": "Chicago Bulls",
+          "conference": "EAST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Cleveland Cavaliers",
+                  "points": 3
+                },
+                {
+                  "name": "New Jersey Nets",
+                  "points": 1
+                }
+              ],
+              "name": "Cleveland Cavaliers",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Boston Celtics",
+                  "points": 3
+                },
+                {
+                  "name": "Indiana Pacers",
+                  "points": 0
+                }
+              ],
+              "name": "Boston Celtics",
+              "conference": "EAST",
+              "points": 3
+            }
+          ],
+          "name": "Cleveland Cavaliers",
+          "conference": "EAST",
+          "points": 2
+        }
+      ],
+      "name": "Chicago Bulls",
+      "conference": "EAST",
+      "points": 4
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Portland Trail Blazers",
+                  "points": 3
+                },
+                {
+                  "name": "Los Angeles Lakers",
+                  "points": 1
+                }
+              ],
+              "name": "Portland Trail Blazers",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Phoenix Suns",
+                  "points": 3
+                },
+                {
+                  "name": "San Antonio Spurs",
+                  "points": 0
+                }
+              ],
+              "name": "Phoenix Suns",
+              "conference": "WEST",
+              "points": 1
+            }
+          ],
+          "name": "Portland Trail Blazers",
+          "conference": "WEST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Utah Jazz",
+                  "points": 3
+                },
+                {
+                  "name": "Los Angeles Clippers",
+                  "points": 2
+                }
+              ],
+              "name": "Utah Jazz",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Seattle SuperSonics",
+                  "points": 3
+                },
+                {
+                  "name": "Golden State Warriors",
+                  "points": 1
+                }
+              ],
+              "name": "Seattle SuperSonics",
+              "conference": "WEST",
+              "points": 1
+            }
+          ],
+          "name": "Utah Jazz",
+          "conference": "WEST",
+          "points": 2
+        }
+      ],
+      "name": "Portland Trail Blazers",
+      "conference": "WEST",
+      "points": 2
+    }
+  ],
+  "name": "Chicago Bulls",
+  "conference": "BOTH"
+}
