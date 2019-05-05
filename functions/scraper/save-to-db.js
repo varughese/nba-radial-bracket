@@ -17,7 +17,7 @@ const db = firebase.database();
 module.exports = {
   saveToDb: function upload({tree, year}) {
     console.log("Saving", year, " to database");
-    return db.ref('years_test').child(year).set(tree);
+    return db.ref('years').child(year).set(tree);
   },
   closeDb: function() {
     return firebase.app().delete();
