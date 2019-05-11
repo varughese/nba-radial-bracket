@@ -15,4 +15,7 @@ Front end is a `d3` partition layout. It was definitely the harder part. I found
 ### Back End
 The flow of the backend is `Scrape` → `Parse` →`Transform`. Transforming was the hardest part, but not that bad. View the docs [here](https://github.com/varughese/nba-radial-bracket/blob/master/docs/backend.md).
 
+### Deployment
+This uses Firebase so there is no hosted server. This is how the app is able to be hosted on Github Pages. Firebase Cloud functions are used to trigger a scrape once a day. `firebase deploy --only functions` deploys the functions specfied in the `functions/index.js` file.
+
 And don't forget to trust the process. The Sixers are gonna win the Finals soon enough.

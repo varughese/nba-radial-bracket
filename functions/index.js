@@ -15,8 +15,9 @@ admin.initializeApp();
 exports.getPlayoffData = functions.https.onRequest(async (req, res) => {
 	// Grab the text parameter.
 	const tree = await getPlayoffData(currentYear);
+	console.log(tree);
 	// Push the new message into the Realtime Database using the Firebase Admin SDK.
-	const snapshot = await admin.database().ref('/tree_fn').child(currentYear).set(tree);
+	const snapshot = await admin.database().ref('/years').child(currentYear).set(tree);
 	// Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
-	res.redirect(303, snapshot.ref.toString());
+	res.json(tree);
 });

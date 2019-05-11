@@ -1,14 +1,24 @@
 const cheerio = require("cheerio");
 const request = require("request-promise");
-const fs = require("fs");
 const path = require("path");
 const util = require('util');  
+const TEAM_INFO = require("./team-info.json");
+let fs = require("fs");
+
+if(process.env.FIREBASE_CONFIG) {
+	fs = {
+		existsSync: (p) => false,
+		readFile: (p) => {},
+		writeFile: (p, d) => {},
+	};
+}
+
 const readFile = util.promisify(fs.readFile);
 const writeFile = util.promisify(fs.writeFile);
-const TEAM_INFO = require("./team-info.json");
 
 const PULL_FROM_CACHE = false;
 const currentYear = new Date().getFullYear();
+
 
 async function scrape(url, year) {
 	const CACHE_PATH = path.join(__dirname, "cache", `${year}.html`);
