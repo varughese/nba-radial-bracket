@@ -22,7 +22,8 @@ const db = firebase.database();
 
 document.getElementById('playoffs-logo').src = NbaPlayoffsLogo;
 
-const currentYear = new Date().getFullYear();
+const didPlayoffsStart = new Date().getMonth() > 4;
+const currentYear = new Date().getFullYear() - (didPlayoffsStart ? 0 : 1);
 const MILLISECONDS_IN_HOUR = 3600000;
 const RECHECK_TIME = 1 *MILLISECONDS_IN_HOUR;
 
