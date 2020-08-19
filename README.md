@@ -18,4 +18,6 @@ The flow of the backend is `Scrape` → `Parse` →`Transform`. Transforming was
 ### Deployment
 This uses Firebase so there is no hosted server. This is how the app is able to be hosted on Github Pages. Firebase Cloud functions are used to expose a url that can run the `getPlayoffData` function defined in `scraper.js` . Running `firebase deploy --only functions` deploys the functions specfied in the `functions/index.js` file as Firebase cloud functions. Then performing a `GET` to a specific url runs this function (which in turn scrapes the website and updates the database). Using `https://cron-job.org/`, I schedule a `GET` request to this URL once a day. I also have a `deploy` NPM script that builds the whole thing with webpack and pushes it to the GitHub pages branch.
 
+Update: Firebase Cloud Functions stopped working because I ran out of credit, so I switched to using GitHub actions.
+
 And don't forget to trust the process. The Sixers are gonna win the Finals soon enough.
