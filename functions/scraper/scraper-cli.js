@@ -8,6 +8,7 @@ function scrapeYearsStartingFrom(year) {
 	const years = [...Array(currentYear-year+1).keys()].map(i => i+year);
 	const promises = years.map(async year => {
 		const tree = await getPlayoffData(year);
+		console.log("Got playoff data.")
 		return saveToDb({tree, year});
 	});
 	Promise.all(promises).then(closeDb);
