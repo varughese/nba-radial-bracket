@@ -26,6 +26,6 @@ This uses Firebase so there is no hosted server. This is how the app is able to 
 
 Update: Firebase Cloud Functions stopped working because I ran out of credit, so I switched to using GitHub actions to run a function once a day.
 
-And don't forget to trust the process. The Sixers are gonna win the Finals soon enough.
+And don't forget to trust the process. The Sixers are gonna win the Finals
 
 Update: 2 years later, still trusting the process...

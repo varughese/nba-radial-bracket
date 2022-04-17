@@ -1,0 +1,138 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Milwaukee Bucks",
+                  "points": 0
+                },
+                {
+                  "name": "Chicago Bulls",
+                  "points": 0
+                }
+              ],
+              "points": 0
+            },
+            {
+              "children": [
+                {
+                  "name": "Boston Celtics",
+                  "points": 0
+                },
+                {
+                  "name": "Brooklyn Nets",
+                  "points": 0
+                }
+              ],
+              "points": 0
+            }
+          ],
+          "points": 0
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Philadelphia 76ers",
+                  "points": 1
+                },
+                {
+                  "name": "Toronto Raptors",
+                  "points": 0
+                }
+              ],
+              "points": 0
+            },
+            {
+              "children": [
+                {
+                  "name": "Miami Heat",
+                  "points": 0
+                },
+                {
+                  "name": "Atlanta Hawks",
+                  "points": 0
+                }
+              ],
+              "points": 0
+            }
+          ],
+          "points": 0
+        }
+      ],
+      "points": 0
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Memphis Grizzlies",
+                  "points": 0
+                },
+                {
+                  "name": "Minnesota Timberwolves",
+                  "points": 1
+                }
+              ],
+              "points": 0
+            },
+            {
+              "children": [
+                {
+                  "name": "Golden State Warriors",
+                  "points": 1
+                },
+                {
+                  "name": "Denver Nuggets",
+                  "points": 0
+                }
+              ],
+              "points": 0
+            }
+          ],
+          "points": 0
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Dallas Mavericks",
+                  "points": 0
+                },
+                {
+                  "name": "Utah Jazz",
+                  "points": 1
+                }
+              ],
+              "points": 0
+            },
+            {
+              "children": [
+                {
+                  "name": "Phoenix Suns",
+                  "points": 0
+                },
+                {
+                  "name": "New Orleans Pelicans",
+                  "points": 0
+                }
+              ],
+              "points": 0
+            }
+          ],
+          "points": 0
+        }
+      ],
+      "points": 0
+    }
+  ]
+}
