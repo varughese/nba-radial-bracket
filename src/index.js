@@ -54,14 +54,13 @@ function loadBracketForYear(year) {
     }
 }
 
-loadBracketForYear(currentYear);
-
 let yearDisplayed = currentYear;
 const $yearDisplayedTop = document.getElementById("year");
 const $prevYearText = document.getElementById("prev-year-text");
 const $nextYearText = document.getElementById("next-year-text");
 const $prevBtn = document.getElementById("yearleft");
 const $nextBtn = document.getElementById("yearright");
+
 window.changeYear = function (change) {
     if (yearDisplayed + change < 1990 || yearDisplayed + change > currentYear)
         return;
@@ -81,3 +80,9 @@ window.changeYear = function (change) {
         $prevBtn.classList.remove("invisible");
     }
 };
+
+function initialize() {
+    window.changeYear(0);
+}
+
+initialize();
