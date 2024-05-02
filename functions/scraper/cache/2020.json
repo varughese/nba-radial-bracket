@@ -7,7 +7,22 @@
             {
               "children": [
                 {
-                  "name": "Toronto Raptors",
+                  "name": "Miami Heat",
+                  "points": 4
+                },
+                {
+                  "name": "Indiana Pacers",
+                  "points": 0
+                }
+              ],
+              "name": "Miami Heat",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Milwaukee Bucks",
                   "points": 4
                 },
                 {
@@ -15,27 +30,12 @@
                   "points": 1
                 }
               ],
-              "name": "Toronto Raptors",
+              "name": "Milwaukee Bucks",
               "conference": "EAST",
-              "points": 4
-            },
-            {
-              "children": [
-                {
-                  "name": "Philadelphia 76ers",
-                  "points": 4
-                },
-                {
-                  "name": "Brooklyn Nets",
-                  "points": 1
-                }
-              ],
-              "name": "Philadelphia 76ers",
-              "conference": "EAST",
-              "points": 3
+              "points": 1
             }
           ],
-          "name": "Toronto Raptors",
+          "name": "Miami Heat",
           "conference": "EAST",
           "points": 4
         },
@@ -44,42 +44,42 @@
             {
               "children": [
                 {
-                  "name": "Milwaukee Bucks",
+                  "name": "Boston Celtics",
                   "points": 4
                 },
                 {
-                  "name": "Detroit Pistons",
+                  "name": "Philadelphia 76ers",
                   "points": 0
                 }
               ],
-              "name": "Milwaukee Bucks",
+              "name": "Boston Celtics",
               "conference": "EAST",
               "points": 4
             },
             {
               "children": [
                 {
-                  "name": "Boston Celtics",
+                  "name": "Toronto Raptors",
                   "points": 4
                 },
                 {
-                  "name": "Indiana Pacers",
+                  "name": "Brooklyn Nets",
                   "points": 0
                 }
               ],
-              "name": "Boston Celtics",
+              "name": "Toronto Raptors",
               "conference": "EAST",
-              "points": 1
+              "points": 3
             }
           ],
-          "name": "Milwaukee Bucks",
+          "name": "Boston Celtics",
           "conference": "EAST",
           "points": 2
         }
       ],
-      "name": "Toronto Raptors",
+      "name": "Miami Heat",
       "conference": "EAST",
-      "points": 4
+      "points": 2
     },
     {
       "children": [
@@ -88,15 +88,15 @@
             {
               "children": [
                 {
-                  "name": "Golden State Warriors",
+                  "name": "Los Angeles Lakers",
                   "points": 4
                 },
                 {
-                  "name": "Los Angeles Clippers",
-                  "points": 2
+                  "name": "Portland Trail Blazers",
+                  "points": 1
                 }
               ],
-              "name": "Golden State Warriors",
+              "name": "Los Angeles Lakers",
               "conference": "WEST",
               "points": 4
             },
@@ -107,16 +107,16 @@
                   "points": 4
                 },
                 {
-                  "name": "Utah Jazz",
-                  "points": 1
+                  "name": "Oklahoma City Thunder",
+                  "points": 3
                 }
               ],
               "name": "Houston Rockets",
               "conference": "WEST",
-              "points": 2
+              "points": 1
             }
           ],
-          "name": "Golden State Warriors",
+          "name": "Los Angeles Lakers",
           "conference": "WEST",
           "points": 4
         },
@@ -125,44 +125,44 @@
             {
               "children": [
                 {
-                  "name": "Portland Trail Blazers",
+                  "name": "Denver Nuggets",
                   "points": 4
                 },
                 {
-                  "name": "Oklahoma City Thunder",
-                  "points": 1
+                  "name": "Utah Jazz",
+                  "points": 3
                 }
               ],
-              "name": "Portland Trail Blazers",
+              "name": "Denver Nuggets",
               "conference": "WEST",
               "points": 4
             },
             {
               "children": [
                 {
-                  "name": "Denver Nuggets",
+                  "name": "Los Angeles Clippers",
                   "points": 4
                 },
                 {
-                  "name": "San Antonio Spurs",
-                  "points": 3
+                  "name": "Dallas Mavericks",
+                  "points": 2
                 }
               ],
-              "name": "Denver Nuggets",
+              "name": "Los Angeles Clippers",
               "conference": "WEST",
               "points": 3
             }
           ],
-          "name": "Portland Trail Blazers",
+          "name": "Denver Nuggets",
           "conference": "WEST",
-          "points": 0
+          "points": 1
         }
       ],
-      "name": "Golden State Warriors",
+      "name": "Los Angeles Lakers",
       "conference": "WEST",
-      "points": 2
+      "points": 4
     }
   ],
-  "name": "Toronto Raptors",
+  "name": "Los Angeles Lakers",
   "conference": "BOTH"
 }

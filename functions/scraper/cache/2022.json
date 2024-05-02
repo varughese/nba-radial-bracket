@@ -8,7 +8,7 @@
               "children": [
                 {
                   "name": "Milwaukee Bucks",
-                  "points": 0
+                  "points": 1
                 },
                 {
                   "name": "Chicago Bulls",
@@ -21,7 +21,7 @@
               "children": [
                 {
                   "name": "Boston Celtics",
-                  "points": 0
+                  "points": 1
                 },
                 {
                   "name": "Brooklyn Nets",
@@ -39,7 +39,7 @@
               "children": [
                 {
                   "name": "Philadelphia 76ers",
-                  "points": 1
+                  "points": 2
                 },
                 {
                   "name": "Toronto Raptors",
@@ -52,7 +52,7 @@
               "children": [
                 {
                   "name": "Miami Heat",
-                  "points": 0
+                  "points": 2
                 },
                 {
                   "name": "Atlanta Hawks",
@@ -75,7 +75,7 @@
               "children": [
                 {
                   "name": "Memphis Grizzlies",
-                  "points": 0
+                  "points": 1
                 },
                 {
                   "name": "Minnesota Timberwolves",
@@ -88,7 +88,7 @@
               "children": [
                 {
                   "name": "Golden State Warriors",
-                  "points": 1
+                  "points": 2
                 },
                 {
                   "name": "Denver Nuggets",
@@ -106,7 +106,7 @@
               "children": [
                 {
                   "name": "Dallas Mavericks",
-                  "points": 0
+                  "points": 1
                 },
                 {
                   "name": "Utah Jazz",
@@ -119,11 +119,11 @@
               "children": [
                 {
                   "name": "Phoenix Suns",
-                  "points": 0
+                  "points": 1
                 },
                 {
                   "name": "New Orleans Pelicans",
-                  "points": 0
+                  "points": 1
                 }
               ],
               "points": 0
