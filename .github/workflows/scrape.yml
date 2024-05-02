@@ -32,7 +32,7 @@ jobs:
                   node functions/scraper/scraper-cli.js
                   git config --local user.name "GitHub Actions"
                   git add .
-                  git commit -m "Scrape"
+                  git commit -m "Scrape" || true
             - name: Push changes # push the output folder to your repo
               uses: ad-m/github-push-action@master
               with:
