@@ -26,4 +26,4 @@ function scrapeYearsStartingFrom(year) {
     Promise.all(promises);
 }
 
-scrapeYearsStartingFrom(process.argv[2]);
+scrapeYearsStartingFrom(process.argv[2] || currentYear);
