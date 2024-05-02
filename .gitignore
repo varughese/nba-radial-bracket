@@ -3,3 +3,4 @@
 node_modules/
 scraper/cache/
 **/.env
+/dist

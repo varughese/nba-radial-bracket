@@ -21,7 +21,7 @@
         "webpack-dev-server": "^3.3.1"
     },
     "scripts": {
-        "build": "esbuild src/index.js --bundle --loader:.png=file --loader:.svg=file --loader:.jpg=file --loader:.ttf=file --outdir=dist",
+        "build": "esbuild src/index.js --bundle --loader:.png=file --loader:.svg=file --loader:.jpg=file --loader:.ttf=file --outdir=dist && cp src/index.html dist/index.html",
         "start": "esbuild src/index.js --bundle --loader:.png=file --loader:.svg=file --loader:.jpg=file --loader:.ttf=file --outdir=dist --watch --servedir=dist",
         "scrape": "node functions/scraper/scraper-cli.js 2024"
     },
