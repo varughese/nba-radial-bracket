@@ -30,8 +30,7 @@ jobs:
             - name: Run a multi-line script
               run: |
                   node functions/scraper/scraper-cli.js
-                  git config --local user.email "tyrese@github.com"
-                  git config --local user.name "GitHub Action test"
+                  git config --local user.name "GitHub Actions"
                   git add .
                   git commit -m "Scrape"
             - name: Push changes # push the output folder to your repo
