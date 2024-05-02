@@ -7,19 +7,6 @@
             {
               "children": [
                 {
-                  "name": "Boston Celtics",
-                  "points": 3
-                },
-                {
-                  "name": "Miami Heat",
-                  "points": 1
-                }
-              ],
-              "points": 0
-            },
-            {
-              "children": [
-                {
                   "name": "Cleveland Cavaliers",
                   "points": 3
                 },
@@ -29,12 +16,7 @@
                 }
               ],
               "points": 0
-            }
-          ],
-          "points": 0
-        },
-        {
-          "children": [
+            },
             {
               "children": [
                 {
@@ -47,7 +29,12 @@
                 }
               ],
               "points": 0
-            },
+            }
+          ],
+          "points": 0
+        },
+        {
+          "children": [
             {
               "children": [
                 {
@@ -57,6 +44,19 @@
                 {
                   "name": "Philadelphia 76ers",
                   "points": 2
+                }
+              ],
+              "points": 0
+            },
+            {
+              "children": [
+                {
+                  "name": "Boston Celtics",
+                  "points": 4
+                },
+                {
+                  "name": "Miami Heat",
+                  "points": 1
                 }
               ],
               "points": 0
@@ -79,7 +79,7 @@
                 },
                 {
                   "name": "Dallas Mavericks",
-                  "points": 2
+                  "points": 3
                 }
               ],
               "points": 0
