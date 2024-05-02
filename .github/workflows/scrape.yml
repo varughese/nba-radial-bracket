@@ -28,10 +28,11 @@ jobs:
               run: yarn install
             - name: Run a multi-line script
               run: |
-                  node functions/scraper/scraper-cli.js
-                  git config --local user.name "GitHub Actions"
+                  node functions/scraper/scraper-cli.js 
+                  git config --global user.email "githb-actions[bot]@users.noreply.github.com"
+                  git config --local user.name "GitHub Actions [bot]"
                   git add .
-                  git commit -m "Scrape" || true
+                  git commit -m "[bot] Scrape" || true
             - name: Push changes # push the output folder to your repo
               uses: ad-m/github-push-action@master
               with:
