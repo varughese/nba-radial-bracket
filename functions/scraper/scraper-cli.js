@@ -1,6 +1,15 @@
 const getPlayoffData = require("./scraper");
-const { saveToDb, closeDb } = require("./save-to-db");
 const currentYear = new Date().getFullYear();
+const path = require("path");
+const fs = require("fs");
+const util = require("util");
+const writeFile = util.promisify(fs.writeFile);
+
+function saveFile(tree, year) {
+    const json = JSON.stringify(tree, null, 2);
+    console.log("Writing JSON for", year);
+    return writeFile(path.join(__dirname, "cache", year + ".json"), json);
+}
 
 function scrapeYearsStartingFrom(year) {
     if (year) year = Number(year);
@@ -12,9 +21,9 @@ function scrapeYearsStartingFrom(year) {
         const tree = await getPlayoffData(year);
         console.log(tree);
         console.log("Got playoff data.");
-        return saveToDb({ tree, year });
+        return saveFile(tree, year);
     });
-    Promise.all(promises).then(closeDb);
+    Promise.all(promises);
 }
 
 scrapeYearsStartingFrom(process.argv[2]);
