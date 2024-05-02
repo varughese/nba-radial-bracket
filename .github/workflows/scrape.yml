@@ -8,7 +8,7 @@ name: Scrape
 # At minute 15 past every 12th hour from 4 through 23.
 on:
     schedule:
-        - cron: "15 4/12 * * *"
+        - cron: "16 4/4 * * *"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
