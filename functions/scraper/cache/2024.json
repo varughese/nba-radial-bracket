@@ -20,12 +20,12 @@
             {
               "children": [
                 {
-                  "name": "Milwaukee Bucks",
-                  "points": 2
+                  "name": "Boston Celtics",
+                  "points": 4
                 },
                 {
-                  "name": "Indiana Pacers",
-                  "points": 3
+                  "name": "Miami Heat",
+                  "points": 1
                 }
               ],
               "points": 0
@@ -38,11 +38,11 @@
             {
               "children": [
                 {
-                  "name": "New York Knicks",
-                  "points": 3
+                  "name": "Indiana Pacers",
+                  "points": 4
                 },
                 {
-                  "name": "Philadelphia 76ers",
+                  "name": "Milwaukee Bucks",
                   "points": 2
                 }
               ],
@@ -51,12 +51,12 @@
             {
               "children": [
                 {
-                  "name": "Boston Celtics",
+                  "name": "New York Knicks",
                   "points": 4
                 },
                 {
-                  "name": "Miami Heat",
-                  "points": 1
+                  "name": "Philadelphia 76ers",
+                  "points": 2
                 }
               ],
               "points": 0
