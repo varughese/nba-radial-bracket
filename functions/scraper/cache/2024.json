@@ -48,7 +48,7 @@
               ],
               "name": "New York Knicks",
               "conference": "EAST",
-              "points": 0
+              "points": 1
             },
             {
               "children": [
@@ -138,7 +138,7 @@
               ],
               "name": "Minnesota Timberwolves",
               "conference": "WEST",
-              "points": 1
+              "points": 2
             }
           ],
           "points": 0
