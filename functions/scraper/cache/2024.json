@@ -7,37 +7,6 @@
             {
               "children": [
                 {
-                  "name": "Boston Celtics",
-                  "points": 4
-                },
-                {
-                  "name": "Miami Heat",
-                  "points": 1
-                }
-              ],
-              "points": 0
-            },
-            {
-              "children": [
-                {
-                  "name": "Cleveland Cavaliers",
-                  "points": 4
-                },
-                {
-                  "name": "Orlando Magic",
-                  "points": 3
-                }
-              ],
-              "points": 0
-            }
-          ],
-          "points": 0
-        },
-        {
-          "children": [
-            {
-              "children": [
-                {
                   "name": "New York Knicks",
                   "points": 4
                 },
@@ -62,6 +31,41 @@
                 }
               ],
               "name": "Indiana Pacers",
+              "conference": "EAST",
+              "points": 0
+            }
+          ],
+          "points": 0
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Boston Celtics",
+                  "points": 4
+                },
+                {
+                  "name": "Miami Heat",
+                  "points": 1
+                }
+              ],
+              "name": "Boston Celtics",
+              "conference": "EAST",
+              "points": 1
+            },
+            {
+              "children": [
+                {
+                  "name": "Cleveland Cavaliers",
+                  "points": 4
+                },
+                {
+                  "name": "Orlando Magic",
+                  "points": 3
+                }
+              ],
+              "name": "Cleveland Cavaliers",
               "conference": "EAST",
               "points": 0
             }
