@@ -32,7 +32,7 @@
               ],
               "name": "Indiana Pacers",
               "conference": "EAST",
-              "points": 0
+              "points": 1
             }
           ],
           "points": 0
@@ -127,7 +127,7 @@
               ],
               "name": "Denver Nuggets",
               "conference": "WEST",
-              "points": 0
+              "points": 1
             },
             {
               "children": [
