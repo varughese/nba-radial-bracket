@@ -17,7 +17,7 @@
               ],
               "name": "New York Knicks",
               "conference": "EAST",
-              "points": 2
+              "points": 3
             },
             {
               "children": [
@@ -127,7 +127,7 @@
               ],
               "name": "Denver Nuggets",
               "conference": "WEST",
-              "points": 2
+              "points": 3
             },
             {
               "children": [
