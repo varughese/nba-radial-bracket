@@ -82,41 +82,6 @@
             {
               "children": [
                 {
-                  "name": "Oklahoma City Thunder",
-                  "points": 4
-                },
-                {
-                  "name": "New Orleans Pelicans",
-                  "points": 0
-                }
-              ],
-              "name": "Oklahoma City Thunder",
-              "conference": "WEST",
-              "points": 2
-            },
-            {
-              "children": [
-                {
-                  "name": "Dallas Mavericks",
-                  "points": 4
-                },
-                {
-                  "name": "Los Angeles Clippers",
-                  "points": 2
-                }
-              ],
-              "name": "Dallas Mavericks",
-              "conference": "WEST",
-              "points": 3
-            }
-          ],
-          "points": 0
-        },
-        {
-          "children": [
-            {
-              "children": [
-                {
                   "name": "Denver Nuggets",
                   "points": 4
                 },
@@ -143,6 +108,41 @@
               "name": "Minnesota Timberwolves",
               "conference": "WEST",
               "points": 3
+            }
+          ],
+          "points": 0
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Dallas Mavericks",
+                  "points": 4
+                },
+                {
+                  "name": "Los Angeles Clippers",
+                  "points": 2
+                }
+              ],
+              "name": "Dallas Mavericks",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Oklahoma City Thunder",
+                  "points": 4
+                },
+                {
+                  "name": "New Orleans Pelicans",
+                  "points": 0
+                }
+              ],
+              "name": "Oklahoma City Thunder",
+              "conference": "WEST",
+              "points": 2
             }
           ],
           "points": 0
