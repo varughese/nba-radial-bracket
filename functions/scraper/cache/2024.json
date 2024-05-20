@@ -7,41 +7,6 @@
             {
               "children": [
                 {
-                  "name": "New York Knicks",
-                  "points": 4
-                },
-                {
-                  "name": "Philadelphia 76ers",
-                  "points": 2
-                }
-              ],
-              "name": "New York Knicks",
-              "conference": "EAST",
-              "points": 3
-            },
-            {
-              "children": [
-                {
-                  "name": "Indiana Pacers",
-                  "points": 4
-                },
-                {
-                  "name": "Milwaukee Bucks",
-                  "points": 2
-                }
-              ],
-              "name": "Indiana Pacers",
-              "conference": "EAST",
-              "points": 3
-            }
-          ],
-          "points": 0
-        },
-        {
-          "children": [
-            {
-              "children": [
-                {
                   "name": "Boston Celtics",
                   "points": 4
                 },
@@ -71,47 +36,47 @@
             }
           ],
           "points": 0
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Indiana Pacers",
+                  "points": 4
+                },
+                {
+                  "name": "Milwaukee Bucks",
+                  "points": 2
+                }
+              ],
+              "name": "Indiana Pacers",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "New York Knicks",
+                  "points": 4
+                },
+                {
+                  "name": "Philadelphia 76ers",
+                  "points": 2
+                }
+              ],
+              "name": "New York Knicks",
+              "conference": "EAST",
+              "points": 3
+            }
+          ],
+          "points": 0
         }
       ],
       "points": 0
     },
     {
       "children": [
-        {
-          "children": [
-            {
-              "children": [
-                {
-                  "name": "Denver Nuggets",
-                  "points": 4
-                },
-                {
-                  "name": "Los Angeles Lakers",
-                  "points": 1
-                }
-              ],
-              "name": "Denver Nuggets",
-              "conference": "WEST",
-              "points": 3
-            },
-            {
-              "children": [
-                {
-                  "name": "Minnesota Timberwolves",
-                  "points": 4
-                },
-                {
-                  "name": "Phoenix Suns",
-                  "points": 0
-                }
-              ],
-              "name": "Minnesota Timberwolves",
-              "conference": "WEST",
-              "points": 3
-            }
-          ],
-          "points": 0
-        },
         {
           "children": [
             {
@@ -143,6 +108,41 @@
               "name": "Oklahoma City Thunder",
               "conference": "WEST",
               "points": 2
+            }
+          ],
+          "points": 0
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Minnesota Timberwolves",
+                  "points": 4
+                },
+                {
+                  "name": "Phoenix Suns",
+                  "points": 0
+                }
+              ],
+              "name": "Minnesota Timberwolves",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Denver Nuggets",
+                  "points": 4
+                },
+                {
+                  "name": "Los Angeles Lakers",
+                  "points": 1
+                }
+              ],
+              "name": "Denver Nuggets",
+              "conference": "WEST",
+              "points": 3
             }
           ],
           "points": 0
