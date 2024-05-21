@@ -35,6 +35,8 @@
               "points": 1
             }
           ],
+          "name": "Boston Celtics",
+          "conference": "EAST",
           "points": 0
         },
         {
@@ -70,6 +72,8 @@
               "points": 3
             }
           ],
+          "name": "Indiana Pacers",
+          "conference": "EAST",
           "points": 0
         }
       ],
@@ -77,41 +81,6 @@
     },
     {
       "children": [
-        {
-          "children": [
-            {
-              "children": [
-                {
-                  "name": "Dallas Mavericks",
-                  "points": 4
-                },
-                {
-                  "name": "Los Angeles Clippers",
-                  "points": 2
-                }
-              ],
-              "name": "Dallas Mavericks",
-              "conference": "WEST",
-              "points": 4
-            },
-            {
-              "children": [
-                {
-                  "name": "Oklahoma City Thunder",
-                  "points": 4
-                },
-                {
-                  "name": "New Orleans Pelicans",
-                  "points": 0
-                }
-              ],
-              "name": "Oklahoma City Thunder",
-              "conference": "WEST",
-              "points": 2
-            }
-          ],
-          "points": 0
-        },
         {
           "children": [
             {
@@ -145,6 +114,45 @@
               "points": 3
             }
           ],
+          "name": "Minnesota Timberwolves",
+          "conference": "WEST",
+          "points": 0
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Dallas Mavericks",
+                  "points": 4
+                },
+                {
+                  "name": "Los Angeles Clippers",
+                  "points": 2
+                }
+              ],
+              "name": "Dallas Mavericks",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Oklahoma City Thunder",
+                  "points": 4
+                },
+                {
+                  "name": "New Orleans Pelicans",
+                  "points": 0
+                }
+              ],
+              "name": "Oklahoma City Thunder",
+              "conference": "WEST",
+              "points": 2
+            }
+          ],
+          "name": "Dallas Mavericks",
+          "conference": "WEST",
           "points": 0
         }
       ],
