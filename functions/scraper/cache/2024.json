@@ -77,6 +77,8 @@
           "points": 0
         }
       ],
+      "name": "Boston Celtics",
+      "conference": "EAST",
       "points": 0
     },
     {
@@ -156,7 +158,11 @@
           "points": 1
         }
       ],
+      "name": "Dallas Mavericks",
+      "conference": "WEST",
       "points": 0
     }
-  ]
+  ],
+  "name": "Boston Celtics",
+  "conference": "BOTH"
 }
