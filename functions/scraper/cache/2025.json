@@ -8,7 +8,7 @@
               "children": [
                 {
                   "name": "Cleveland Cavaliers",
-                  "points": 0
+                  "points": 1
                 },
                 {
                   "name": "Miami Heat",
@@ -52,7 +52,7 @@
               "children": [
                 {
                   "name": "Boston Celtics",
-                  "points": 0
+                  "points": 1
                 },
                 {
                   "name": "Orlando Magic",
@@ -75,7 +75,7 @@
               "children": [
                 {
                   "name": "Oklahoma City Thunder",
-                  "points": 0
+                  "points": 1
                 },
                 {
                   "name": "Memphis Grizzlies",
@@ -123,7 +123,7 @@
                 },
                 {
                   "name": "Golden State Warriors",
-                  "points": 0
+                  "points": 1
                 }
               ],
               "points": 0
