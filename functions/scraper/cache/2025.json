@@ -21,7 +21,7 @@
               "children": [
                 {
                   "name": "Indiana Pacers",
-                  "points": 1
+                  "points": 2
                 },
                 {
                   "name": "Milwaukee Bucks",
@@ -75,7 +75,7 @@
               "children": [
                 {
                   "name": "Oklahoma City Thunder",
-                  "points": 1
+                  "points": 2
                 },
                 {
                   "name": "Memphis Grizzlies",
@@ -106,7 +106,7 @@
               "children": [
                 {
                   "name": "Los Angeles Lakers",
-                  "points": 0
+                  "points": 1
                 },
                 {
                   "name": "Minnesota Timberwolves",
