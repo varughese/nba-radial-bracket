@@ -8,7 +8,7 @@
               "children": [
                 {
                   "name": "Cleveland Cavaliers",
-                  "points": 2
+                  "points": 3
                 },
                 {
                   "name": "Miami Heat",
@@ -74,12 +74,12 @@
             {
               "children": [
                 {
-                  "name": "Oklahoma City Thunder",
-                  "points": 3
+                  "name": "Denver Nuggets",
+                  "points": 2
                 },
                 {
-                  "name": "Memphis Grizzlies",
-                  "points": 0
+                  "name": "Los Angeles Clippers",
+                  "points": 2
                 }
               ],
               "points": 0
@@ -87,11 +87,11 @@
             {
               "children": [
                 {
-                  "name": "Denver Nuggets",
+                  "name": "Los Angeles Lakers",
                   "points": 1
                 },
                 {
-                  "name": "Los Angeles Clippers",
+                  "name": "Minnesota Timberwolves",
                   "points": 2
                 }
               ],
@@ -105,11 +105,11 @@
             {
               "children": [
                 {
-                  "name": "Los Angeles Lakers",
+                  "name": "Houston Rockets",
                   "points": 1
                 },
                 {
-                  "name": "Minnesota Timberwolves",
+                  "name": "Golden State Warriors",
                   "points": 2
                 }
               ],
@@ -118,12 +118,12 @@
             {
               "children": [
                 {
-                  "name": "Houston Rockets",
-                  "points": 1
+                  "name": "Oklahoma City Thunder",
+                  "points": 4
                 },
                 {
-                  "name": "Golden State Warriors",
-                  "points": 1
+                  "name": "Memphis Grizzlies",
+                  "points": 0
                 }
               ],
               "points": 0
