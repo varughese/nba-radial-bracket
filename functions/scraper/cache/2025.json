@@ -87,11 +87,11 @@
             {
               "children": [
                 {
-                  "name": "Los Angeles Lakers",
-                  "points": 1
+                  "name": "Houston Rockets",
+                  "points": 2
                 },
                 {
-                  "name": "Minnesota Timberwolves",
+                  "name": "Golden State Warriors",
                   "points": 3
                 }
               ],
@@ -105,12 +105,12 @@
             {
               "children": [
                 {
-                  "name": "Houston Rockets",
-                  "points": 1
+                  "name": "Minnesota Timberwolves",
+                  "points": 4
                 },
                 {
-                  "name": "Golden State Warriors",
-                  "points": 3
+                  "name": "Los Angeles Lakers",
+                  "points": 1
                 }
               ],
               "points": 0
