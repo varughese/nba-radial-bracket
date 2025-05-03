@@ -21,8 +21,5 @@
     "description": "Visualize the NBA playoffs",
     "main": "index.js",
     "author": "Mathew Varughese <mat.varughese3@gmail.com>",
-    "license": "MIT",
-    "packages": [
-        "."
-    ]
+    "license": "MIT"
 }
