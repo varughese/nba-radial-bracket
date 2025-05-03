@@ -7,19 +7,6 @@
             {
               "children": [
                 {
-                  "name": "New York Knicks",
-                  "points": 3
-                },
-                {
-                  "name": "Detroit Pistons",
-                  "points": 2
-                }
-              ],
-              "points": 0
-            },
-            {
-              "children": [
-                {
                   "name": "Boston Celtics",
                   "points": 4
                 },
@@ -29,12 +16,7 @@
                 }
               ],
               "points": 0
-            }
-          ],
-          "points": 0
-        },
-        {
-          "children": [
+            },
             {
               "children": [
                 {
@@ -47,7 +29,12 @@
                 }
               ],
               "points": 0
-            },
+            }
+          ],
+          "points": 0
+        },
+        {
+          "children": [
             {
               "children": [
                 {
@@ -57,6 +44,19 @@
                 {
                   "name": "Milwaukee Bucks",
                   "points": 1
+                }
+              ],
+              "points": 0
+            },
+            {
+              "children": [
+                {
+                  "name": "New York Knicks",
+                  "points": 4
+                },
+                {
+                  "name": "Detroit Pistons",
+                  "points": 2
                 }
               ],
               "points": 0
@@ -79,7 +79,7 @@
                 },
                 {
                   "name": "Los Angeles Clippers",
-                  "points": 2
+                  "points": 3
                 }
               ],
               "points": 0
@@ -88,7 +88,7 @@
               "children": [
                 {
                   "name": "Houston Rockets",
-                  "points": 2
+                  "points": 3
                 },
                 {
                   "name": "Golden State Warriors",
@@ -105,27 +105,31 @@
             {
               "children": [
                 {
-                  "name": "Minnesota Timberwolves",
+                  "name": "Cleveland Cavaliers",
                   "points": 4
                 },
                 {
-                  "name": "Los Angeles Lakers",
-                  "points": 1
+                  "name": "Miami Heat",
+                  "points": 0
                 }
               ],
+              "name": "Cleveland Cavaliers",
+              "conference": "EAST",
               "points": 0
             },
             {
               "children": [
                 {
-                  "name": "Oklahoma City Thunder",
+                  "name": "Indiana Pacers",
                   "points": 4
                 },
                 {
-                  "name": "Memphis Grizzlies",
-                  "points": 0
+                  "name": "Milwaukee Bucks",
+                  "points": 1
                 }
               ],
+              "name": "Indiana Pacers",
+              "conference": "EAST",
               "points": 0
             }
           ],

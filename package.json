@@ -7,11 +7,12 @@
         "request-promise": "^4.2.4"
     },
     "devDependencies": {
-        "esbuild": "0.20.2"
+        "esbuild": "^0.20.2",
+        "concurrently": "^8.2.2"
     },
     "scripts": {
         "build": "esbuild src/index.js --bundle --loader:.png=file --loader:.svg=file --loader:.jpg=file --loader:.ttf=file --outdir=dist && cp src/index.html dist/index.html",
-        "start": "esbuild src/index.js --bundle --loader:.png=file --loader:.svg=file --loader:.jpg=file --loader:.ttf=file --outdir=dist --watch --servedir=dist",
+        "start": "concurrently \"esbuild src/index.js --bundle --loader:.png=file --loader:.svg=file --loader:.jpg=file --loader:.ttf=file --outdir=dist --watch\" \"esbuild src/index.html --outdir=dist --watch\" \"esbuild --serve --servedir=dist\"",
         "scrape": "node functions/scraper/scraper-cli.js 2024"
     },
     "name": "nba-radial-bracket",
