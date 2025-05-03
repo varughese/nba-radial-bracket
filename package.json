@@ -7,12 +7,13 @@
         "request-promise": "^4.2.4"
     },
     "devDependencies": {
+        "concurrently": "^8.2.2",
         "esbuild": "^0.20.2",
-        "concurrently": "^8.2.2"
+        "chokidar": "^4.0.3"
     },
     "scripts": {
         "build": "esbuild src/index.js --bundle --loader:.png=file --loader:.svg=file --loader:.jpg=file --loader:.ttf=file --outdir=dist && cp src/index.html dist/index.html",
-        "start": "concurrently \"esbuild src/index.js --bundle --loader:.png=file --loader:.svg=file --loader:.jpg=file --loader:.ttf=file --outdir=dist --watch\" \"esbuild src/index.html --outdir=dist --watch\" \"esbuild --serve --servedir=dist\"",
+        "start": "node esbuild.config.js",
         "scrape": "node functions/scraper/scraper-cli.js 2024"
     },
     "name": "nba-radial-bracket",
@@ -20,5 +21,8 @@
     "description": "Visualize the NBA playoffs",
     "main": "index.js",
     "author": "Mathew Varughese <mat.varughese3@gmail.com>",
-    "license": "MIT"
+    "license": "MIT",
+    "packages": [
+        "."
+    ]
 }

@@ -89,13 +89,11 @@ function sortMatches(matchA, matchB) {
 }
 
 function convertToTree(series) {
-    const { padded } = padSeriesWithFillerGames(series);
+    const { mostRecentGame, padded } = padSeriesWithFillerGames(series);
     series = padded;
     const wonGames = {};
     series.forEach((match, i) => {
-        if (match.filler) return;
-        if (match.winningPoints != 4) return;
-
+        if (i <= mostRecentGame || match.filler) return;
         wonGames[match.winning] = wonGames[match.winning] || [];
         wonGames[match.winning].push(i);
     });
@@ -168,7 +166,12 @@ function padSeriesWithFillerGames(series) {
         .fill(1)
         .map((_m, i) => ({ next: [2 * i + 1, 2 * i + 2], filler: true }));
     const padded = fillers.concat(series);
-    return { padded };
+    // TODO Need to check if someone actually won or not here
+    const mostRecentGame = 2 * (padlen - 1) + 2;
+    return {
+        padded,
+        mostRecentGame,
+    };
 }
 
 function transformRounds(series) {
@@ -207,7 +210,6 @@ function saveFile(tree, year) {
 async function getPlayoffData(year) {
     const url = `https://www.basketball-reference.com/playoffs/NBA_${year}.html`;
     try {
-        console.log("Scraping", url);
         const $ = await scrape(url, year);
         const data = parse($);
         const tree = transform(data);
