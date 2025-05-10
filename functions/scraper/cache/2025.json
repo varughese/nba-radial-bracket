@@ -17,7 +17,7 @@
               ],
               "name": "Cleveland Cavaliers",
               "conference": "EAST",
-              "points": 0
+              "points": 1
             },
             {
               "children": [
@@ -107,7 +107,7 @@
               ],
               "name": "Denver Nuggets",
               "conference": "WEST",
-              "points": 1
+              "points": 2
             }
           ],
           "points": 0
