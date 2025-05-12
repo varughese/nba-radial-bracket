@@ -32,7 +32,7 @@
               ],
               "name": "Indiana Pacers",
               "conference": "EAST",
-              "points": 2
+              "points": 3
             }
           ],
           "points": 0
@@ -92,7 +92,7 @@
               ],
               "name": "Oklahoma City Thunder",
               "conference": "WEST",
-              "points": 1
+              "points": 2
             },
             {
               "children": [
