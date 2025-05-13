@@ -67,7 +67,7 @@
               ],
               "name": "New York Knicks",
               "conference": "EAST",
-              "points": 2
+              "points": 3
             }
           ],
           "points": 0
@@ -127,7 +127,7 @@
               ],
               "name": "Minnesota Timberwolves",
               "conference": "WEST",
-              "points": 2
+              "points": 3
             },
             {
               "children": [
