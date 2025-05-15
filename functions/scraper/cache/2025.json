@@ -17,7 +17,7 @@
               ],
               "name": "Boston Celtics",
               "conference": "EAST",
-              "points": 1
+              "points": 2
             },
             {
               "children": [
@@ -127,7 +127,7 @@
               ],
               "name": "Minnesota Timberwolves",
               "conference": "WEST",
-              "points": 3
+              "points": 4
             },
             {
               "children": [
