@@ -7,41 +7,6 @@
             {
               "children": [
                 {
-                  "name": "Boston Celtics",
-                  "points": 4
-                },
-                {
-                  "name": "Orlando Magic",
-                  "points": 1
-                }
-              ],
-              "name": "Boston Celtics",
-              "conference": "EAST",
-              "points": 2
-            },
-            {
-              "children": [
-                {
-                  "name": "New York Knicks",
-                  "points": 4
-                },
-                {
-                  "name": "Detroit Pistons",
-                  "points": 2
-                }
-              ],
-              "name": "New York Knicks",
-              "conference": "EAST",
-              "points": 3
-            }
-          ],
-          "points": 0
-        },
-        {
-          "children": [
-            {
-              "children": [
-                {
                   "name": "Indiana Pacers",
                   "points": 4
                 },
@@ -68,6 +33,41 @@
               "name": "Cleveland Cavaliers",
               "conference": "EAST",
               "points": 1
+            }
+          ],
+          "points": 0
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "New York Knicks",
+                  "points": 4
+                },
+                {
+                  "name": "Detroit Pistons",
+                  "points": 2
+                }
+              ],
+              "name": "New York Knicks",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Boston Celtics",
+                  "points": 4
+                },
+                {
+                  "name": "Orlando Magic",
+                  "points": 1
+                }
+              ],
+              "name": "Boston Celtics",
+              "conference": "EAST",
+              "points": 2
             }
           ],
           "points": 0
