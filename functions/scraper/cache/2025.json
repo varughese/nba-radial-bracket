@@ -82,41 +82,6 @@
             {
               "children": [
                 {
-                  "name": "Oklahoma City Thunder",
-                  "points": 4
-                },
-                {
-                  "name": "Memphis Grizzlies",
-                  "points": 0
-                }
-              ],
-              "name": "Oklahoma City Thunder",
-              "conference": "WEST",
-              "points": 3
-            },
-            {
-              "children": [
-                {
-                  "name": "Denver Nuggets",
-                  "points": 4
-                },
-                {
-                  "name": "Los Angeles Clippers",
-                  "points": 3
-                }
-              ],
-              "name": "Denver Nuggets",
-              "conference": "WEST",
-              "points": 3
-            }
-          ],
-          "points": 0
-        },
-        {
-          "children": [
-            {
-              "children": [
-                {
                   "name": "Minnesota Timberwolves",
                   "points": 4
                 },
@@ -143,6 +108,41 @@
               "name": "Golden State Warriors",
               "conference": "WEST",
               "points": 1
+            }
+          ],
+          "points": 0
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "Oklahoma City Thunder",
+                  "points": 4
+                },
+                {
+                  "name": "Memphis Grizzlies",
+                  "points": 0
+                }
+              ],
+              "name": "Oklahoma City Thunder",
+              "conference": "WEST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Denver Nuggets",
+                  "points": 4
+                },
+                {
+                  "name": "Los Angeles Clippers",
+                  "points": 3
+                }
+              ],
+              "name": "Denver Nuggets",
+              "conference": "WEST",
+              "points": 3
             }
           ],
           "points": 0
