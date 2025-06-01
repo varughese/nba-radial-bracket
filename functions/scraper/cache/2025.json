@@ -7,6 +7,43 @@
             {
               "children": [
                 {
+                  "name": "Indiana Pacers",
+                  "points": 4
+                },
+                {
+                  "name": "Milwaukee Bucks",
+                  "points": 1
+                }
+              ],
+              "name": "Indiana Pacers",
+              "conference": "EAST",
+              "points": 4
+            },
+            {
+              "children": [
+                {
+                  "name": "Cleveland Cavaliers",
+                  "points": 4
+                },
+                {
+                  "name": "Miami Heat",
+                  "points": 0
+                }
+              ],
+              "name": "Cleveland Cavaliers",
+              "conference": "EAST",
+              "points": 1
+            }
+          ],
+          "name": "Indiana Pacers",
+          "conference": "EAST",
+          "points": 4
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
                   "name": "New York Knicks",
                   "points": 4
                 },
@@ -38,43 +75,6 @@
           "name": "New York Knicks",
           "conference": "EAST",
           "points": 2
-        },
-        {
-          "children": [
-            {
-              "children": [
-                {
-                  "name": "Indiana Pacers",
-                  "points": 4
-                },
-                {
-                  "name": "Milwaukee Bucks",
-                  "points": 1
-                }
-              ],
-              "name": "Indiana Pacers",
-              "conference": "EAST",
-              "points": 4
-            },
-            {
-              "children": [
-                {
-                  "name": "Cleveland Cavaliers",
-                  "points": 4
-                },
-                {
-                  "name": "Miami Heat",
-                  "points": 0
-                }
-              ],
-              "name": "Cleveland Cavaliers",
-              "conference": "EAST",
-              "points": 1
-            }
-          ],
-          "name": "Indiana Pacers",
-          "conference": "EAST",
-          "points": 3
         }
       ],
       "points": 0
