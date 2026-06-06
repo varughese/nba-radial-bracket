@@ -214,7 +214,8 @@ export default class RadialBracket {
 		const ratioOfImage = (256/470);
 		const imgWidth = ratioOfImage * imgHeight;
 		const winner = svg.append('g').attr("id", "trophys")
-		const winnerExists = rootNode.data.name;
+		const finalsWon = rootNode.children && rootNode.children.some(c => c.data.points >= 4);
+		const winnerExists = rootNode.data.name && finalsWon;
 
 		if(!winnerExists) {
 			winner.append("circle")
