@@ -14,7 +14,7 @@
     "scripts": {
         "build": "esbuild src/index.js --bundle --loader:.png=file --loader:.svg=file --loader:.jpg=file --loader:.ttf=file --outdir=dist && cp src/index.html dist/index.html",
         "start": "node esbuild.config.js",
-        "scrape": "node functions/scraper/scraper-cli.js 2024"
+        "scrape": "node functions/scraper/scraper-cli.js"
     },
     "name": "nba-radial-bracket",
     "version": "2.0.0",
