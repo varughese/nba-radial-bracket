@@ -26,6 +26,14 @@
 		<button class="invisible" id="yearright" onclick="changeYear(1)"><span
 				id="next-year-text"></span><span>&nbsp;&rarr;</span></button>
 	</div>
+	<button id="zoom-out-btn" onclick="toggleGridView()">All Years</button>
+	<div id="grid-view" class="hide">
+		<div id="grid-header">
+			<h2>NBA Playoff Brackets</h2>
+			<button id="grid-close-btn" onclick="toggleGridView()">&#10005; Close</button>
+		</div>
+		<div id="years-grid"></div>
+	</div>
 	<img id="playoffs-logo" />
 	<div id="credits">
 		<div id="github" class="hide-when-small">
