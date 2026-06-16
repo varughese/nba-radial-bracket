@@ -18,8 +18,8 @@ jobs:
 
             # Prevents GitHub from disabling this workflow after 60 days of inactivity.
             # During the off-season the cron still fires but only this step does real work.
-            - name: Keep workflow alive
-              uses: gautamkrishnar/keepalive-workflow@v2
+            #- name: Keep workflow alive
+            #  uses: gautamkrishnar/keepalive-workflow@v2
 
             - name: Check if NBA playoff season (April–June)
               id: season
