@@ -79,7 +79,7 @@
       ],
       "name": "New York Knicks",
       "conference": "EAST",
-      "points": 2
+      "points": 4
     },
     {
       "children": [
@@ -160,9 +160,9 @@
       ],
       "name": "San Antonio Spurs",
       "conference": "WEST",
-      "points": 0
+      "points": 1
     }
   ],
-  "name": "San Antonio Spurs",
+  "name": "New York Knicks",
   "conference": "BOTH"
 }
